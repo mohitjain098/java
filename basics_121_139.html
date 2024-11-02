@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Java Programming Questions</h1>
+    </header>
+    <main>
+        <section class="question-list">
+            <h2>BASIC PROGRAMMING CONSTRUCTS</h2>
+
+            <title>Horizontal List</title>
+            <style>
+               
+             
+            </style>
+        </head>
+        <body>
+        
+            <ul>
+                <li><a href="basics.html">1-20</a></li>
+                <li><a href="basics_21_40.html">21-40</a></li>
+                <li><a href="basics_41_60.html">41-60</a></li>
+                <li><a href="basics_61_80.html">61-80</a></li>
+                <li><a href="basics_81_100.html">81-100</a></li>
+                <li><a href="basics_101_120.html">101-120</a></li>
+                <li><a href="basics_121_139.html">121-139</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <strong>121. Write a Java method to find the smallest number among three numbers</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class SmallestOfThree {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter three numbers: ");
+                    int num1 = scanner.nextInt();
+                    int num2 = scanner.nextInt();
+                    int num3 = scanner.nextInt();
+            
+                    int smallest = findSmallest(num1, num2, num3);
+                    System.out.println("Smallest number: " + smallest);
+                }
+            
+                public static int findSmallest(int a, int b, int c) {
+                    return Math.min(a, Math.min(b, c));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter three numbers: 3 5 1, Smallest number: 1</p>
+                </li>
+            
+                <li>
+                    <strong>122. Write a Java method to count all words in a string</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class WordCount {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a string: ");
+                    String input = scanner.nextLine();
+            
+                    int wordCount = countWords(input);
+                    System.out.println("Total words: " + wordCount);
+                }
+            
+                public static int countWords(String str) {
+                    String[] words = str.trim().split("\\s+");
+                    return words.length;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string: Hello world, Total words: 2</p>
+                </li>
+            
+                <li>
+                    <strong>123. Write a Java method to count all vowels in a string</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class VowelCount {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a string: ");
+                    String input = scanner.nextLine();
+            
+                    int vowelCount = countVowels(input);
+                    System.out.println("Total vowels: " + vowelCount);
+                }
+            
+                public static int countVowels(String str) {
+                    int count = 0;
+                    for (char c : str.toLowerCase().toCharArray()) {
+                        if ("aeiou".indexOf(c) != -1) {
+                            count++;
+                        }
+                    }
+                    return count;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string: Hello world, Total vowels: 3</p>
+                </li>
+            
+                <li>
+                    <strong>124. Write a Java method to compute the sum of the digits in an integer</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class DigitSum {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter an integer: ");
+                    int num = scanner.nextInt();
+            
+                    int sum = sumOfDigits(num);
+                    System.out.println("Sum of digits: " + sum);
+                }
+            
+                public static int sumOfDigits(int n) {
+                    int sum = 0;
+                    while (n != 0) {
+                        sum += n % 10;
+                        n /= 10;
+                    }
+                    return sum;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter an integer: 12345, Sum of digits: 15</p>
+                </li>
+            
+                <li>
+                    <strong>125. Write a Java method to check whether a year entered by the user is a leap year or not</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class LeapYear {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a year: ");
+                    int year = scanner.nextInt();
+            
+                    if (isLeapYear(year)) {
+                        System.out.println(year + " is a leap year.");
+                    } else {
+                        System.out.println(year + " is not a leap year.");
+                    }
+                }
+            
+                public static boolean isLeapYear(int year) {
+                    return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a year: 2020, 2020 is a leap year.</p>
+                </li>
+            
+                <li>
+                    <strong>126. Write a Java method to calculate the area of a triangle</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class TriangleArea {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter base and height of triangle: ");
+                    double base = scanner.nextDouble();
+                    double height = scanner.nextDouble();
+            
+                    double area = calculateArea(base, height);
+                    System.out.println("Area of triangle: " + area);
+                }
+            
+                public static double calculateArea(double base, double height) {
+                    return 0.5 * base * height;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter base and height of triangle: 5 10, Area of triangle: 25.0</p>
+                </li>
+            
+                <li>
+                    <strong>127. Write a Java method to find the area of a pentagon</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class PentagonArea {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter the length of a side of pentagon: ");
+                    double side = scanner.nextDouble();
+            
+                    double area = calculateArea(side);
+                    System.out.println("Area of pentagon: " + area);
+                }
+            
+                public static double calculateArea(double side) {
+                    return (5 * side * side) / (4 * Math.tan(Math.PI / 5));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter the length of a side of pentagon: 5, Area of pentagon: 43.01193501472417</p>
+                </li>
+            
+                <li>
+                    <strong>128. Write a Java method to find if a number is even or not</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class EvenNumberCheck {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a number: ");
+                    int num = scanner.nextInt();
+            
+                    if (isEven(num)) {
+                        System.out.println(num + " is an even number.");
+                    } else {
+                        System.out.println(num + " is not an even number.");
+                    }
+                }
+            
+                public static boolean isEven(int n) {
+                    return n % 2 == 0;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a number: 4, 4 is an even number.</p>
+                </li>
+            
+                <li>
+                    <strong>129. Write a Java method to check if a number is a palindrome or not</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class PalindromeCheck {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a number: ");
+                    int num = scanner.nextInt();
+            
+                    if (isPalindrome(num)) {
+                        System.out.println(num + " is a palindrome.");
+                    } else {
+                        System.out.println(num + " is not a palindrome.");
+                    }
+                }
+            
+                public static boolean isPalindrome(int n) {
+                    int reversed = 0;
+                    int original = n;
+            
+                    while (n != 0) {
+                        reversed = reversed * 10 + n % 10;
+                        n /= 10;
+                    }
+                    return original == reversed;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a number: 121, 121 is a palindrome.</p>
+                </li>
+            
+                <li>
+                    <strong>130. Write a Java method to display prime numbers between 1 to 20</strong>
+                    <pre>public class PrimeNumbers {
+                public static void main(String[] args) {
+                    System.out.println("Prime numbers between 1 and 20:");
+                    for (int i = 2; i <= 20; i++) {
+                        if (isPrime(i)) {
+                            System.out.print(i + " ");
+                        }
+                    }
+                }
+            
+                public static boolean isPrime(int n) {
+                    for (int i = 2; i <= Math.sqrt(n); i++) {
+                        if (n % i == 0) {
+                            return false;
+                        }
+                    }
+                    return n > 1;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Prime numbers between 1 and 20: 2 3 5 7 11 13 17 19</p>
+                </li>
+            
+                <li>
+                    <strong>131. Write a Java method to find GCD and LCM of Two Numbers</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class GCDAndLCM {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter first number: ");
+                    int num1 = scanner.nextInt();
+                    System.out.print("Enter second number: ");
+                    int num2 = scanner.nextInt();
+            
+                    int gcd = findGCD(num1, num2);
+                    int lcm = findLCM(num1, num2, gcd);
+            
+                    System.out.println("GCD: " + gcd);
+                    System.out.println("LCM: " + lcm);
+                }
+            
+                public static int findGCD(int a, int b) {
+                    while (b != 0) {
+                        int temp = b;
+                        b = a % b;
+                        a = temp;
+                    }
+                    return a;
+                }
+            
+                public static int findLCM(int a, int b, int gcd) {
+                    return (a * b) / gcd;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter first number: 12, Enter second number: 18, GCD: 6, LCM: 36</p>
+                </li>
+            
+                <li>
+                    <strong>132. Write a Java method to find factorial using recursion</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class FactorialRecursion {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a number: ");
+                    int num = scanner.nextInt();
+            
+                    int factorial = factorial(num);
+                    System.out.println("Factorial of " + num + " is: " + factorial);
+                }
+            
+                public static int factorial(int n) {
+                    if (n == 0) {
+                        return 1;
+                    }
+                    return n * factorial(n - 1);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a number: 5, Factorial of 5 is: 120</p>
+                </li>
+            
+                <li>
+                    <strong>133. Write a Java program to reverse an integer number</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class ReverseInteger {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter an integer: ");
+                    int num = scanner.nextInt();
+            
+                    int reversed = reverseNumber(num);
+                    System.out.println("Reversed number: " + reversed);
+                }
+            
+                public static int reverseNumber(int n) {
+                    int reversed = 0;
+                    while (n != 0) {
+                        reversed = reversed * 10 + n % 10;
+                        n /= 10;
+                    }
+                    return reversed;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter an integer: 12345, Reversed number: 54321</p>
+                </li>
+            
+                <li>
+                    <strong>134. Write a Java program to round a float number to specified decimals</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class RoundFloat {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a float number: ");
+                    float number = scanner.nextFloat();
+                    System.out.print("Enter number of decimal places: ");
+                    int decimalPlaces = scanner.nextInt();
+            
+                    float rounded = roundToDecimals(number, decimalPlaces);
+                    System.out.println("Rounded number: " + rounded);
+                }
+            
+                public static float roundToDecimals(float value, int places) {
+                    int factor = (int) Math.pow(10, places);
+                    return Math.round(value * factor) / (float) factor;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a float number: 3.14159, Enter number of decimal places: 2, Rounded number: 3.14</p>
+                </li>
+            
+                <li>
+                    <strong>135. Write a Java program to test if a double number is an integer</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class DoubleCheck {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a double number: ");
+                    double number = scanner.nextDouble();
+            
+                    if (isInteger(number)) {
+                        System.out.println(number + " is an integer.");
+                    } else {
+                        System.out.println(number + " is not an integer.");
+                    }
+                }
+            
+                public static boolean isInteger(double num) {
+                    return num == Math.floor(num);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a double number: 5.0, 5.0 is an integer.</p>
+                </li>
+            
+                <li>
+                    <strong>136. Write a Java program to round up the result of integer division</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class RoundUpDivision {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter numerator: ");
+                    int numerator = scanner.nextInt();
+                    System.out.print("Enter denominator: ");
+                    int denominator = scanner.nextInt();
+            
+                    int result = roundUpDivision(numerator, denominator);
+                    System.out.println("Rounded up result: " + result);
+                }
+            
+                public static int roundUpDivision(int num, int denom) {
+                    return (num + denom - 1) / denom;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter numerator: 5, Enter denominator: 2, Rounded up result: 3</p>
+                </li>
+            
+                <li>
+                    <strong>137. Write a Java program to convert Roman number to an integer number</strong>
+                    <pre>import java.util.HashMap;
+            import java.util.Scanner;
+            
+            public class RomanToInteger {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a Roman numeral: ");
+                    String roman = scanner.nextLine();
+            
+                    int integer = romanToInteger(roman);
+                    System.out.println("Integer value: " + integer);
+                }
+            
+                public static int romanToInteger(String s) {
+                    HashMap<Character, Integer> map = new HashMap<>();
+                    map.put('I', 1);
+                    map.put('V', 5);
+                    map.put('X', 10);
+                    map.put('L', 50);
+                    map.put('C', 100);
+                    map.put('D', 500);
+                    map.put('M', 1000);
+                    
+                    int total = 0;
+                    for (int i = 0; i < s.length(); i++) {
+                        if (i > 0 && map.get(s.charAt(i)) > map.get(s.charAt(i - 1))) {
+                            total += map.get(s.charAt(i)) - 2 * map.get(s.charAt(i - 1));
+                        } else {
+                            total += map.get(s.charAt(i));
+                        }
+                    }
+                    return total;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a Roman numeral: XIV, Integer value: 14</p>
+                </li>
+            
+                <li>
+                    <strong>138. Write a Java program to convert a float value to absolute value</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class AbsoluteValue {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a float number: ");
+                    float number = scanner.nextFloat();
+            
+                    float absolute = Math.abs(number);
+                    System.out.println("Absolute value: " + absolute);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a float number: -5.5, Absolute value: 5.5</p>
+                </li>
+            
+                <li>
+                    <strong>139. Write a Java program to accept a float value of number and return a rounded float value</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class RoundFloatValue {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a float number: ");
+                    float number = scanner.nextFloat();
+            
+                    float rounded = Math.round(number);
+                    System.out.println("Rounded float value: " + rounded);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a float number: 3.7, Rounded float value: 4.0</p>
+                </li>
+            </ul>
+            
+        </main>
+        <footer>
+            <p>&copy; 2024 Java Questions</p>
+        </footer>
+    </body>
+    </html>

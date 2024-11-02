@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Java Programming Questions</h1>
+    </header>
+    <main>
+        <section class="question-list">
+            <h2>BASIC PROGRAMMING CONSTRUCTS</h2>
+
+            <title>Horizontal List</title>
+            <style>
+               
+             
+            </style>
+        </head>
+        <body>
+        
+            <ul>
+                <li><a href="basics.html">1-20</a></li>
+                <li><a href="basics_21_40.html">21-40</a></li>
+                <li><a href="basics_41_60.html">41-60</a></li>
+                <li><a href="basics_61_80.html">61-80</a></li>
+                <li><a href="basics_81_100.html">81-100</a></li>
+                <li><a href="basics_101_120.html">101-120</a></li>
+                <li><a href="basics_121_139.html">121-139</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <strong>41. Java program to calculate average marks</strong>
+                    <pre>public class AverageMarks {
+                public static void main(String[] args) {
+                    int[] marks = {85, 90, 78, 92, 88};
+                    double sum = 0;
+                    
+                    for (int mark : marks) {
+                        sum += mark;
+                    }
+                    
+                    double average = sum / marks.length;
+                    System.out.println("Average Marks: " + average);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Average Marks: 86.6</p>
+                </li>
+            
+                <li>
+                    <strong>42. Java program to check vowel or consonant</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class VowelConsonant {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a letter: ");
+                    char letter = scanner.next().toLowerCase().charAt(0);
+                    
+                    if ("aeiou".indexOf(letter) != -1) {
+                        System.out.println(letter + " is a vowel.");
+                    } else {
+                        System.out.println(letter + " is a consonant.");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a letter: a, a is a vowel.</p>
+                </li>
+            
+                <li>
+                    <strong>43. Java program to sum of N numbers</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class SumOfNNumbers {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter N: ");
+                    int N = scanner.nextInt();
+                    int sum = 0;
+                    
+                    for (int i = 1; i <= N; i++) {
+                        sum += i;
+                    }
+                    
+                    System.out.println("Sum of first " + N + " numbers: " + sum);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter N: 5, Sum of first 5 numbers: 15</p>
+                </li>
+            
+                <li>
+                    <strong>44. Java program to find factorial of any number</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class Factorial {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a number: ");
+                    int number = scanner.nextInt();
+                    long factorial = 1;
+                    
+                    for (int i = 1; i <= number; i++) {
+                        factorial *= i;
+                    }
+                    
+                    System.out.println("Factorial of " + number + " is " + factorial);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a number: 5, Factorial of 5 is 120</p>
+                </li>
+            
+                <li>
+                    <strong>45. Java Program to calculate electricity bill</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class ElectricityBill {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter units consumed: ");
+                    int units = scanner.nextInt();
+                    double bill;
+                    
+                    if (units <= 100) {
+                        bill = units * 1.20;
+                    } else if (units <= 300) {
+                        bill = 100 * 1.20 + (units - 100) * 2.00;
+                    } else {
+                        bill = 100 * 1.20 + 200 * 2.00 + (units - 300) * 3.00;
+                    }
+                    
+                    System.out.printf("Electricity Bill: %.2f", bill);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter units consumed: 250, Electricity Bill: 320.00</p>
+                </li>
+            
+                <li>
+                    <strong>46. Java Program To Calculate CGPA Percentage</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class CGPACalculator {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter number of subjects: ");
+                    int subjects = scanner.nextInt();
+                    double totalMarks = 0;
+                    
+                    for (int i = 1; i <= subjects; i++) {
+                        System.out.print("Enter marks for subject " + i + ": ");
+                        totalMarks += scanner.nextDouble();
+                    }
+                    
+                    double cgpa = totalMarks / subjects;
+                    double percentage = (cgpa / 10) * 100;
+                    
+                    System.out.printf("CGPA: %.2f, Percentage: %.2f%%", cgpa, percentage);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter number of subjects: 5, CGPA: 8.40, Percentage: 84.00%</p>
+                </li>
+            
+                <li>
+                    <strong>47. Java Program to calculate compound interest</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class CompoundInterest {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter principal amount: ");
+                    double principal = scanner.nextDouble();
+                    System.out.print("Enter rate of interest: ");
+                    double rate = scanner.nextDouble();
+                    System.out.print("Enter time (in years): ");
+                    int time = scanner.nextInt();
+                    
+                    double amount = principal * Math.pow((1 + rate / 100), time);
+                    double compoundInterest = amount - principal;
+                    
+                    System.out.printf("Compound Interest: %.2f", compoundInterest);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter principal amount: 10000, Compound Interest: 1000.00</p>
+                </li>
+            
+                <li>
+                    <strong>48. Java Program To Calculate Batting Average</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class BattingAverage {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter total runs scored: ");
+                    double runs = scanner.nextDouble();
+                    System.out.print("Enter number of innings: ");
+                    double innings = scanner.nextDouble();
+                    
+                    double average = runs / innings;
+                    System.out.printf("Batting Average: %.2f", average);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter total runs scored: 250, Batting Average: 50.00</p>
+                </li>
+            
+                <li>
+                    <strong>49. Java Program to Calculate Commission Percentage</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class CommissionPercentage {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter total sales: ");
+                    double sales = scanner.nextDouble();
+                    double commissionRate = 0.10; // 10%
+                    double commission = sales * commissionRate;
+                    
+                    System.out.printf("Commission: %.2f", commission);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter total sales: 5000, Commission: 500.00</p>
+                </li>
+            
+                <li>
+                    <strong>50. Java Program To Find Distance Between Two Points</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class DistanceBetweenPoints {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter x1, y1: ");
+                    double x1 = scanner.nextDouble();
+                    double y1 = scanner.nextDouble();
+                    System.out.print("Enter x2, y2: ");
+                    double x2 = scanner.nextDouble();
+                    double y2 = scanner.nextDouble();
+                    
+                    double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+                    System.out.printf("Distance: %.2f", distance);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter x1, y1: 1, 2, Enter x2, y2: 4, 6, Distance: 5.00</p>
+                </li>
+            
+                <li>
+                    <strong>51. Java Program To Calculate Power Of Number</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class PowerOfNumber {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter base: ");
+                    double base = scanner.nextDouble();
+                    System.out.print("Enter exponent: ");
+                    double exponent = scanner.nextDouble();
+                    
+                    double power = Math.pow(base, exponent);
+                    System.out.printf("Result: %.2f", power);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter base: 2, Enter exponent: 3, Result: 8.00</p>
+                </li>
+            
+                <li>
+                    <strong>52. Write a Java program to take three numbers from the user and print the greatest number</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class GreatestNumber {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter three numbers: ");
+                    double a = scanner.nextDouble();
+                    double b = scanner.nextDouble();
+                    double c = scanner.nextDouble();
+                    
+                    double greatest = Math.max(a, Math.max(b, c));
+                    System.out.println("Greatest number: " + greatest);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter three numbers: 1, 5, 3, Greatest number: 5.0</p>
+                </li>
+            
+                <li>
+                    <strong>53. Write a Java program to find the number of days in a month</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class DaysInMonth {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter month (1-12): ");
+                    int month = scanner.nextInt();
+                    
+                    int days = 0;
+                    switch (month) {
+                        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                            days = 31;
+                            break;
+                        case 4: case 6: case 9: case 11:
+                            days = 30;
+                            break;
+                        case 2:
+                            days = 28; // Not considering leap years for simplicity
+                            break;
+                        default:
+                            System.out.println("Invalid month.");
+                            return;
+                    }
+                    
+                    System.out.println("Number of days: " + days);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter month (1-12): 2, Number of days: 28</p>
+                </li>
+            
+                <li>
+                    <strong>54. Write a Java program to test a number is positive or negative</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class PositiveNegative {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a number: ");
+                    double number = scanner.nextDouble();
+                    
+                    if (number > 0) {
+                        System.out.println(number + " is positive.");
+                    } else if (number < 0) {
+                        System.out.println(number + " is negative.");
+                    } else {
+                        System.out.println("The number is zero.");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a number: -5, -5 is negative.</p>
+                </li>
+            
+                <li>
+                    <strong>55. Write a Java Program to accept number of week’s day (1-7) and print name of the day</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class DayOfWeek {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter day number (1-7): ");
+                    int day = scanner.nextInt();
+                    
+                    switch (day) {
+                        case 1:
+                            System.out.println("Monday");
+                            break;
+                        case 2:
+                            System.out.println("Tuesday");
+                            break;
+                        case 3:
+                            System.out.println("Wednesday");
+                            break;
+                        case 4:
+                            System.out.println("Thursday");
+                            break;
+                        case 5:
+                            System.out.println("Friday");
+                            break;
+                        case 6:
+                            System.out.println("Saturday");
+                            break;
+                        case 7:
+                            System.out.println("Sunday");
+                            break;
+                        default:
+                            System.out.println("Invalid day.");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter day number (1-7): 3, Wednesday</p>
+                </li>
+            
+                <li>
+                    <strong>56. Write a Java program that takes a year from user and print whether that year is a leap year or not</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class LeapYear {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a year: ");
+                    int year = scanner.nextInt();
+                    
+                    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+                        System.out.println(year + " is a leap year.");
+                    } else {
+                        System.out.println(year + " is not a leap year.");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a year: 2020, 2020 is a leap year.</p>
+                </li>
+            
+                <li>
+                    <strong>57. Write a Java program to input 5 numbers from keyboard and find their sum and average</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class SumAverage {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    int sum = 0;
+                    System.out.print("Enter 5 numbers: ");
+                    
+                    for (int i = 0; i < 5; i++) {
+                        sum += scanner.nextInt();
+                    }
+                    
+                    double average = sum / 5.0;
+                    System.out.println("Sum: " + sum + ", Average: " + average);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter 5 numbers: 1 2 3 4 5, Sum: 15, Average: 3.0</p>
+                </li>
+            
+                <li>
+                    <strong>58. Write a program in Java to display the first 5 natural numbers</strong>
+                    <pre>public class FirstFiveNaturalNumbers {
+                public static void main(String[] args) {
+                    for (int i = 1; i <= 5; i++) {
+                        System.out.println(i);
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> 1, 2, 3, 4, 5</p>
+                </li>
+            
+                <li>
+                    <strong>59. Write a java program to check vowel or consonant</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class VowelConsonant {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a letter: ");
+                    char letter = scanner.next().toLowerCase().charAt(0);
+                    
+                    if ("aeiou".indexOf(letter) != -1) {
+                        System.out.println(letter + " is a vowel.");
+                    } else {
+                        System.out.println(letter + " is a consonant.");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a letter: e, e is a vowel.</p>
+                </li>
+            
+                <li>
+                    <strong>60. Write a Java program to display the cube of the number up to given an integer</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class CubeOfNumbers {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a number: ");
+                    int N = scanner.nextInt();
+                    
+                    for (int i = 1; i <= N; i++) {
+                        System.out.println("Cube of " + i + " is " + (i * i * i));
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a number: 3, Cube of 1 is 1, Cube of 2 is 8, Cube of 3 is 27</p>
+                </li>
+            </ul>
+            
+        </main>
+        <footer>
+            <p>&copy; 2024 Java Questions</p>
+        </footer>
+    </body>
+    </html>

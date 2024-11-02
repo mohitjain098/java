@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Java Programming Questions</h1>
+    </header>
+    <main>
+        <li><a href="index.html">HOME</a></li>
+        <section class="question-list">
+            <h2>PACKAGES</h2>
+
+        
+        </head>
+        <body>
+           
+            <ol>
+                <li>
+                    <strong>1. Create a Java program to access the java.util.Date class through import keyword and print the current date of the system.</strong>
+                    <pre>
+            import java.util.Date;
+            
+            public class CurrentDateImport {
+                public static void main(String[] args) {
+                    Date date = new Date();
+                    System.out.println("Current Date: " + date);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Current Date: [Current Date and Time]</p>
+                </li>
+            
+                <li>
+                    <strong>2. Create a Java program to access the java.util.Date class through qualified way and print the current date of the system.</strong>
+                    <pre>
+            public class CurrentDateQualified {
+                public static void main(String[] args) {
+                    java.util.Date date = new java.util.Date();
+                    System.out.println("Current Date: " + date);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Current Date: [Current Date and Time]</p>
+                </li>
+            
+                <li>
+                    <strong>3. Create a Java program to access the java.util.Date class through import keyword and print the current date of the system but inherit the Date class.</strong>
+                    <pre>
+            import java.util.Date;
+            
+            class CustomDate extends Date {
+                public void display() {
+                    System.out.println("Current Date: " + this);
+                }
+            }
+            
+            public class InheritedDate {
+                public static void main(String[] args) {
+                    CustomDate date = new CustomDate();
+                    date.display();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Current Date: [Current Date and Time]</p>
+                </li>
+            
+                <li>
+                    <strong>4. Create a Java program to access the java.util.Date class through qualified way and print the current date of the system but inherit the Date class.</strong>
+                    <pre>
+            class CustomDateQualified extends java.util.Date {
+                public void display() {
+                    System.out.println("Current Date: " + this);
+                }
+            }
+            
+            public class InheritedDateQualified {
+                public static void main(String[] args) {
+                    CustomDateQualified date = new CustomDateQualified();
+                    date.display();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Current Date: [Current Date and Time]</p>
+                </li>
+            
+                <li>
+                    <strong>5. Create a Java program to create a package with multiple default classes.</strong>
+                    <pre>
+            // Save as MyPackage/Class1.java
+            package MyPackage;
+            
+            class Class1 {
+                void display() {
+                    System.out.println("Class1 in MyPackage");
+                }
+            }
+            
+            // Save as MyPackage/Class2.java
+            package MyPackage;
+            
+            class Class2 {
+                void display() {
+                    System.out.println("Class2 in MyPackage");
+                }
+            }
+            
+            // Main class to test
+            public class PackageTest {
+                public static void main(String[] args) {
+                    Class1 obj1 = new Class1();
+                    obj1.display();
+                    Class2 obj2 = new Class2();
+                    obj2.display();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Class1 in MyPackage, Class2 in MyPackage</p>
+                </li>
+            
+                <li>
+                    <strong>6. Create a Java program to create a package with 4 public classes.</strong>
+                    <pre>
+            // Save as MyPackage/PublicClass1.java
+            package MyPackage;
+            
+            public class PublicClass1 {
+                public void display() {
+                    System.out.println("PublicClass1");
+                }
+            }
+            
+            // Save as MyPackage/PublicClass2.java
+            package MyPackage;
+            
+            public class PublicClass2 {
+                public void display() {
+                    System.out.println("PublicClass2");
+                }
+            }
+            
+            // Save as MyPackage/PublicClass3.java
+            package MyPackage;
+            
+            public class PublicClass3 {
+                public void display() {
+                    System.out.println("PublicClass3");
+                }
+            }
+            
+            // Save as MyPackage/PublicClass4.java
+            package MyPackage;
+            
+            public class PublicClass4 {
+                public void display() {
+                    System.out.println("PublicClass4");
+                }
+            }
+            
+            // Main class to test
+            import MyPackage.*;
+            
+            public class PackageTest {
+                public static void main(String[] args) {
+                    PublicClass1 obj1 = new PublicClass1();
+                    obj1.display();
+                    PublicClass2 obj2 = new PublicClass2();
+                    obj2.display();
+                    PublicClass3 obj3 = new PublicClass3();
+                    obj3.display();
+                    PublicClass4 obj4 = new PublicClass4();
+                    obj4.display();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> PublicClass1, PublicClass2, PublicClass3, PublicClass4</p>
+                </li>
+            
+                <li>
+                    <strong>7. Write a Java program to perform employee payroll processing using packages.</strong>
+                    <pre>
+            // Save as employee/Emp.java
+            package employee;
+            
+            public class Emp {
+                String name;
+                int empid;
+                String category;
+                double bpay, hra, da, npay, pf, grosspay, incometax, allowance;
+            
+                public Emp(String name, int empid, String category, double bpay) {
+                    this.name = name;
+                    this.empid = empid;
+                    this.category = category;
+                    this.bpay = bpay;
+                    calculatePay();
+                }
+            
+                void calculatePay() {
+                    hra = bpay * 0.1;
+                    da = bpay * 0.05;
+                    grosspay = bpay + hra + da;
+                    pf = grosspay * 0.12;
+                    npay = grosspay - pf;
+                    incometax = npay * 0.1;
+                    allowance = npay * 0.05;
+                }
+            
+                void display() {
+                    System.out.println("Name: " + name + ", Emp ID: " + empid + ", Net Pay: " + npay);
+                }
+            }
+            
+            // Save as Emppay.java
+            import employee.Emp;
+            
+            public class Emppay {
+                public static void main(String[] args) {
+                    Emp emp1 = new Emp("John Doe", 101, "Manager", 50000);
+                    emp1.display();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Name: John Doe, Emp ID: 101, Net Pay: [Calculated Amount]</p>
+                </li>
+            
+                <li>
+                    <strong>8. Create a Java program to create a package with public class and protected members to be accessed in another class.</strong>
+                    <pre>
+            // Save as mypackage/ProtectedClass.java
+            package mypackage;
+            
+            public class ProtectedClass {
+                protected void display() {
+                    System.out.println("Protected Method in Public Class");
+                }
+            }
+            
+            // Save as TestProtected.java
+            import mypackage.ProtectedClass;
+            
+            public class TestProtected extends ProtectedClass {
+                public static void main(String[] args) {
+                    TestProtected test = new TestProtected();
+                    test.display();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Protected Method in Public Class</p>
+                </li>
+            
+                <li>
+                    <strong>9. Create a Java program to create a nested package i.e. c4.sample with public class and protected members to be accessed in another class.</strong>
+                    <pre>
+            // Save as c4/sample/NestedPublicClass.java
+            package c4.sample;
+            
+            public class NestedPublicClass {
+                protected void display() {
+                    System.out.println("Protected Method in Nested Public Class");
+                }
+            }
+            
+            // Save as TestNested.java
+            import c4.sample.NestedPublicClass;
+            
+            public class TestNested extends NestedPublicClass {
+                public static void main(String[] args) {
+                    TestNested test = new TestNested();
+                    test.display();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Protected Method in Nested Public Class</p>
+                </li>
+            
+                <li>
+                    <strong>10. Create a Java program to create a package with public class and public members to be accessed in another class.</strong>
+                    <pre>
+            // Save as mypackage/PublicClass.java
+            package mypackage;
+            
+            public class PublicClass {
+                public void display() {
+                    System.out.println("Public Method in Public Class");
+                }
+            }
+            
+            // Save as TestPublicClass.java
+            import mypackage.PublicClass;
+            
+            public class TestPublicClass {
+                public static void main(String[] args) {
+                    PublicClass obj = new PublicClass();
+                    obj.display();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Public Method in Public Class</p>
+                </li>
+            </ol>
+            
+            <footer>
+                <p>&copy; 2024 Java Questions</p>
+            </footer>
+        </body>
+        </html>

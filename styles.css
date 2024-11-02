@@ -1,0 +1,118 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    font-family: 'Arial', sans-serif; /* Font family */
+    color: #4A90E2; /* Text color */
+  
+  
+   
+    padding: 10px; /* Padding around the text */
+ 
+    
+}
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+/* Main Content */
+main {
+    margin-top: 20px;
+}
+
+/* Question Section Styling */
+.question-list {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.question-list p {
+    margin: 10px 0;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Preformatted Code */
+pre {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+pre code {
+    color: #d63384; /* Classy color for code text */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+footer p {
+    font-size: 0.9em;
+}
+
+/* Strong element (used instead of h2) */
+strong {
+    display: block;
+    font-size: 1.3em;
+    color: #222;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Links */
+a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .question-list p {
+        font-size: 1em;
+    }
+}

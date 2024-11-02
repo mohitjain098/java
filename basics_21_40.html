@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Java Programming Questions</h1>
+    </header>
+    <main>
+        <section class="question-list">
+            <h2>BASIC PROGRAMMING CONSTRUCTS</h2>
+
+            <title>Horizontal List</title>
+            <style>
+               
+             
+            </style>
+        </head>
+        <body>
+        
+            <ul>
+                <li><a href="basics.html">1-20</a></li>
+                <li><a href="basics_21_40.html">21-40</a></li>
+                <li><a href="basics_41_60.html">41-60</a></li>
+                <li><a href="basics_61_80.html">61-80</a></li>
+                <li><a href="basics_81_100.html">81-100</a></li>
+                <li><a href="basics_101_120.html">101-120</a></li>
+                <li><a href="basics_121_139.html">121-139</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <strong>21. Write a Java program to swap the first and last elements of an array and create a new array</strong>
+                    <pre>public class SwapArray {
+                public static void main(String[] args) {
+                    int[] array = {1, 2, 3, 4, 5};
+                    int[] newArray = array.clone();
+                    
+                
+                    int temp = newArray[0];
+                    newArray[0] = newArray[newArray.length - 1];
+                    newArray[newArray.length - 1] = temp;
+                    
+                    System.out.println(java.util.Arrays.toString(newArray));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> [5, 2, 3, 4, 1]</p>
+                </li>
+            
+                <li>
+                    <strong>22. Write a Java program to count the number of even and odd elements in a given array</strong>
+                    <pre>public class EvenOddCount {
+                public static void main(String[] args) {
+                    int[] array = {1, 2, 3, 4, 5, 6};
+                    int evenCount = 0, oddCount = 0;
+                    
+                    for (int num : array) {
+                        if (num % 2 == 0) {
+                            evenCount++;
+                        } else {
+                            oddCount++;
+                        }
+                    }
+                    
+                    System.out.println("Even count: " + evenCount + ", Odd count: " + oddCount);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Even count: 3, Odd count: 3</p>
+                </li>
+            
+                <li>
+                    <strong>23. Write a Java program to compute the square root of a given integer</strong>
+                    <pre>public class SquareRoot {
+                public static void main(String[] args) {
+                    int number = 16;
+                    double squareRoot = Math.sqrt(number);
+                    
+                    System.out.println("Square root of " + number + " is " + squareRoot);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Square root of 16 is 4.0</p>
+                </li>
+            
+                <li>
+                    <strong>24. Write a Java program to check if a positive number is a palindrome or not</strong>
+                    <pre>public class PalindromeCheck {
+                public static void main(String[] args) {
+                    int number = 121;
+                    int original = number, reversed = 0;
+                    
+                    while (number > 0) {
+                        reversed = reversed * 10 + number % 10;
+                        number /= 10;
+                    }
+                    
+                    System.out.println(original == reversed ? "Palindrome" : "Not a Palindrome");
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Palindrome</p>
+                </li>
+            
+                <li>
+                    <strong>25. Write a Java program to add two numbers without using any arithmetic operators</strong>
+                    <pre>public class AddWithoutOperators {
+                public static void main(String[] args) {
+                    int a = 5, b = 3;
+                    while (b != 0) {
+                        int carry = a & b;
+                        a = a ^ b;
+                        b = carry << 1;
+                    }
+                    System.out.println("Sum: " + a);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Sum: 8</p>
+                </li>
+            
+                <li>
+                    <strong>26. Write a Java program to add all the digits of a given positive integer</strong>
+                    <pre>public class SumDigits {
+                public static void main(String[] args) {
+                    int number = 12345, sum = 0;
+                    
+                    while (number > 0) {
+                        sum += number % 10;
+                        number /= 10;
+                    }
+                    
+                    System.out.println("Sum of digits: " + sum);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Sum of digits: 15</p>
+                </li>
+            
+                <li>
+                    <strong>27. Java program to find area of circle</strong>
+                    <pre>public class CircleArea {
+                public static void main(String[] args) {
+                    double radius = 5;
+                    double area = Math.PI * radius * radius;
+                    
+                    System.out.println("Area of the circle: " + area);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Area of the circle: 78.53981633974483</p>
+                </li>
+            
+                <li>
+                    <strong>28. Java Program to find area of rectangle</strong>
+                    <pre>public class RectangleArea {
+                public static void main(String[] args) {
+                    double length = 5, width = 10;
+                    double area = length * width;
+                    
+                    System.out.println("Area of the rectangle: " + area);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Area of the rectangle: 50.0</p>
+                </li>
+            
+                <li>
+                    <strong>29. Java Program to find area of triangle</strong>
+                    <pre>public class TriangleArea {
+                public static void main(String[] args) {
+                    double base = 5, height = 10;
+                    double area = 0.5 * base * height;
+                    
+                    System.out.println("Area of the triangle: " + area);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Area of the triangle: 25.0</p>
+                </li>
+            
+                <li>
+                    <strong>30. Java Program to find area of equilateral triangle</strong>
+                    <pre>public class EquilateralTriangleArea {
+                public static void main(String[] args) {
+                    double side = 5;
+                    double area = (Math.sqrt(3) / 4) * side * side;
+                    
+                    System.out.println("Area of the equilateral triangle: " + area);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Area of the equilateral triangle: 10.825317547305486</p>
+                </li>
+            
+                <li>
+                    <strong>31. Java Program to find area of rhombus</strong>
+                    <pre>public class RhombusArea {
+                public static void main(String[] args) {
+                    double d1 = 6, d2 = 8;
+                    double area = (d1 * d2) / 2;
+                    
+                    System.out.println("Area of the rhombus: " + area);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Area of the rhombus: 24.0</p>
+                </li>
+            
+                <li>
+                    <strong>32. Java Program to find area of parallelogram</strong>
+                    <pre>public class ParallelogramArea {
+                public static void main(String[] args) {
+                    double base = 5, height = 10;
+                    double area = base * height;
+                    
+                    System.out.println("Area of the parallelogram: " + area);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Area of the parallelogram: 50.0</p>
+                </li>
+            
+                <li>
+                    <strong>33. Java Program to find area of Prism</strong>
+                    <pre>public class PrismArea {
+                public static void main(String[] args) {
+                    double baseArea = 10, height = 5;
+                    double area = baseArea * height;
+                    
+                    System.out.println("Volume of the prism: " + area);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Volume of the prism: 50.0</p>
+                </li>
+            
+                <li>
+                    <strong>34. Java Program to find volume of sphere</strong>
+                    <pre>public class SphereVolume {
+                public static void main(String[] args) {
+                    double radius = 5;
+                    double volume = (4.0 / 3) * Math.PI * Math.pow(radius, 3);
+                    
+                    System.out.println("Volume of the sphere: " + volume);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Volume of the sphere: 523.5987755982989</p>
+                </li>
+            
+                <li>
+                    <strong>35. Java Program to find volume of cylinder</strong>
+                    <pre>public class CylinderVolume {
+                public static void main(String[] args) {
+                    double radius = 5, height = 10;
+                    double volume = Math.PI * radius * radius * height;
+                    
+                    System.out.println("Volume of the cylinder: " + volume);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Volume of the cylinder: 785.3981633974483</p>
+                </li>
+            
+                <li>
+                    <strong>36. Java Program to find volume of cuboid</strong>
+                    <pre>public class CuboidVolume {
+                public static void main(String[] args) {
+                    double length = 5, width = 10, height = 2;
+                    double volume = length * width * height;
+                    
+                    System.out.println("Volume of the cuboid: " + volume);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Volume of the cuboid: 100.0</p>
+                </li>
+            
+                <li>
+                    <strong>37. Java Program to find volume of cone</strong>
+                    <pre>public class ConeVolume {
+                public static void main(String[] args) {
+                    double radius = 5, height = 10;
+                    double volume = (1.0 / 3) * Math.PI * radius * radius * height;
+                    
+                    System.out.println("Volume of the cone: " + volume);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Volume of the cone: 104.71975511965977</p>
+                </li>
+            
+                <li>
+                    <strong>38. Java program to find surface area of cuboid</strong>
+                    <pre>public class CuboidSurfaceArea {
+                public static void main(String[] args) {
+                    double length = 5, width = 10, height = 2;
+                    double surfaceArea = 2 * (length * width + width * height + height * length);
+                    
+                    System.out.println("Surface area of the cuboid: " + surfaceArea);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Surface area of the cuboid: 140.0</p>
+                </li>
+            
+                <li>
+                    <strong>39. Java program to find surface area of cylinder</strong>
+                    <pre>public class CylinderSurfaceArea {
+                public static void main(String[] args) {
+                    double radius = 5, height = 10;
+                    double surfaceArea = 2 * Math.PI * radius * (radius + height);
+                    
+                    System.out.println("Surface area of the cylinder: " + surfaceArea);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Surface area of the cylinder: 471.238898038469</p>
+                </li>
+            
+                <li>
+                    <strong>40. Java program to find surface area of cube</strong>
+                    <pre>public class CubeSurfaceArea {
+                public static void main(String[] args) {
+                    double side = 5;
+                    double surfaceArea = 6 * side * side;
+                    
+                    System.out.println("Surface area of the cube: " + surfaceArea);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Surface area of the cube: 150.0</p>
+                </li>
+            </ul>
+            
+
+        </main>
+        <footer>
+            <p>&copy; 2024 Java Questions</p>
+        </footer>
+    </body>
+    </html>

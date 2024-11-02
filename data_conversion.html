@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Java Programming Questions</h1>
+    </header>
+    <main>
+        <li><a href="index.html">HOME</a></li>
+        <section class="question-list">
+            <h2>DATA CONVERSION </h2>
+
+        
+        </head>
+        <body>
+            <ul>
+                <li>
+                    <strong>1. How to convert String to int</strong>
+                    <pre>
+            String str = "123";
+            int num = Integer.parseInt(str);
+                    </pre>
+                    <p><strong>Output:</strong> The integer value of str is 123.</p>
+                </li>
+            
+                <li>
+                    <strong>2. How to convert int to String</strong>
+                    <pre>
+            int num = 123;
+            String str = Integer.toString(num);
+                    </pre>
+                    <p><strong>Output:</strong> The string value of num is "123".</p>
+                </li>
+            
+                <li>
+                    <strong>3. How to convert String to long</strong>
+                    <pre>
+            String str = "123456789";
+            long num = Long.parseLong(str);
+                    </pre>
+                    <p><strong>Output:</strong> The long value of str is 123456789.</p>
+                </li>
+            
+                <li>
+                    <strong>4. How to convert long to String</strong>
+                    <pre>
+            long num = 123456789L;
+            String str = Long.toString(num);
+                    </pre>
+                    <p><strong>Output:</strong> The string value of num is "123456789".</p>
+                </li>
+            
+                <li>
+                    <strong>5. How to convert String to float</strong>
+                    <pre>
+            String str = "123.45";
+            float num = Float.parseFloat(str);
+                    </pre>
+                    <p><strong>Output:</strong> The float value of str is 123.45.</p>
+                </li>
+            
+                <li>
+                    <strong>6. How to convert float to String</strong>
+                    <pre>
+            float num = 123.45f;
+            String str = Float.toString(num);
+                    </pre>
+                    <p><strong>Output:</strong> The string value of num is "123.45".</p>
+                </li>
+            
+                <li>
+                    <strong>7. How to convert String to double</strong>
+                    <pre>
+            String str = "123.456";
+            double num = Double.parseDouble(str);
+                    </pre>
+                    <p><strong>Output:</strong> The double value of str is 123.456.</p>
+                </li>
+            
+                <li>
+                    <strong>8. How to convert double to String</strong>
+                    <pre>
+            double num = 123.456;
+            String str = Double.toString(num);
+                    </pre>
+                    <p><strong>Output:</strong> The string value of num is "123.456".</p>
+                </li>
+            
+                <li>
+                    <strong>9. How to convert String to Date</strong>
+                    <pre>
+            import java.text.SimpleDateFormat;
+            import java.util.Date;
+            
+            String str = "2023-11-02";
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = formatter.parse(str);
+                    </pre>
+                    <p><strong>Output:</strong> The Date object represents November 2, 2023.</p>
+                </li>
+            
+                <li>
+                    <strong>10. How to convert Date to String</strong>
+                    <pre>
+            import java.text.SimpleDateFormat;
+            import java.util.Date;
+            
+            Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            String str = formatter.format(date);
+                    </pre>
+                    <p><strong>Output:</strong> The string representation of date is "2023-11-02".</p>
+                </li>
+            
+                <li>
+                    <strong>11. How to convert String to char</strong>
+                    <pre>
+            String str = "Hello";
+            char ch = str.charAt(0); // 'H'
+                    </pre>
+                    <p><strong>Output:</strong> The char value is 'H'.</p>
+                </li>
+            
+                <li>
+                    <strong>12. How to convert char to String</strong>
+                    <pre>
+            char ch = 'H';
+            String str = Character.toString(ch);
+                    </pre>
+                    <p><strong>Output:</strong> The string value is "H".</p>
+                </li>
+            
+                <li>
+                    <strong>13. How to convert String to Object</strong>
+                    <pre>
+            String str = "Hello";
+            Object obj = (Object) str;
+                    </pre>
+                    <p><strong>Output:</strong> The Object reference points to the string "Hello".</p>
+                </li>
+            
+                <li>
+                    <strong>14. How to convert Object to String</strong>
+                    <pre>
+            Object obj = "Hello";
+            String str = (String) obj;
+                    </pre>
+                    <p><strong>Output:</strong> The string value is "Hello".</p>
+                </li>
+            
+                <li>
+                    <strong>15. How to convert int to long</strong>
+                    <pre>
+            int num = 123;
+            long longNum = (long) num;
+                    </pre>
+                    <p><strong>Output:</strong> The long value is 123.</p>
+                </li>
+            
+                <li>
+                    <strong>16. How to convert long to int</strong>
+                    <pre>
+            long longNum = 123456789L;
+            int num = (int) longNum;
+                    </pre>
+                    <p><strong>Output:</strong> The int value is 123456789 (may cause overflow).</p>
+                </li>
+            
+                <li>
+                    <strong>17. How to convert int to double</strong>
+                    <pre>
+            int num = 123;
+            double doubleNum = (double) num;
+                    </pre>
+                    <p><strong>Output:</strong> The double value is 123.0.</p>
+                </li>
+            
+                <li>
+                    <strong>18. How to convert double to int</strong>
+                    <pre>
+            double doubleNum = 123.456;
+            int num = (int) doubleNum;
+                    </pre>
+                    <p><strong>Output:</strong> The int value is 123.</p>
+                </li>
+            
+                <li>
+                    <strong>19. How to convert char to int</strong>
+                    <pre>
+            char ch = 'A';
+            int num = (int) ch;
+                    </pre>
+                    <p><strong>Output:</strong> The int value is 65.</p>
+                </li>
+            
+                <li>
+                    <strong>20. How to convert int to char</strong>
+                    <pre>
+            int num = 65;
+            char ch = (char) num;
+                    </pre>
+                    <p><strong>Output:</strong> The char value is 'A'.</p>
+                </li>
+            
+                <li>
+                    <strong>21. How to convert String to boolean</strong>
+                    <pre>
+            String str = "true";
+            boolean bool = Boolean.parseBoolean(str);
+                    </pre>
+                    <p><strong>Output:</strong> The boolean value is true.</p>
+                </li>
+            
+                <li>
+                    <strong>22. How to convert boolean to String</strong>
+                    <pre>
+            boolean bool = true;
+            String str = Boolean.toString(bool);
+                    </pre>
+                    <p><strong>Output:</strong> The string value is "true".</p>
+                </li>
+            
+                <li>
+                    <strong>23. How to convert Date to Timestamp</strong>
+                    <pre>
+            import java.sql.Timestamp;
+            import java.util.Date;
+            
+            Date date = new Date();
+            Timestamp timestamp = new Timestamp(date.getTime());
+                    </pre>
+                    <p><strong>Output:</strong> The Timestamp object represents the current date and time.</p>
+                </li>
+            
+                <li>
+                    <strong>24. How to convert Timestamp to Date</strong>
+                    <pre>
+            import java.sql.Timestamp;
+            import java.util.Date;
+            
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            Date date = new Date(timestamp.getTime());
+                    </pre>
+                    <p><strong>Output:</strong> The Date object represents the current date and time.</p>
+                </li>
+            
+                <li>
+                    <strong>25. How to convert Binary to Decimal</strong>
+                    <pre>
+            String binaryStr = "1010";
+            int decimal = Integer.parseInt(binaryStr, 2);
+                    </pre>
+                    <p><strong>Output:</strong> The decimal value is 10.</p>
+                </li>
+            
+                <li>
+                    <strong>26. How to convert Decimal to Binary</strong>
+                    <pre>
+            int decimal = 10;
+            String binaryStr = Integer.toBinaryString(decimal);
+                    </pre>
+                    <p><strong>Output:</strong> The binary value is "1010".</p>
+                </li>
+            
+                <li>
+                    <strong>27. How to convert Hex to Decimal</strong>
+                    <pre>
+            String hexStr = "A";
+            int decimal = Integer.parseInt(hexStr, 16);
+                    </pre>
+                    <p><strong>Output:</strong> The decimal value is 10.</p>
+                </li>
+            
+                <li>
+                    <strong>28. How to convert Decimal to Hex</strong>
+                    <pre>
+            int decimal = 10;
+            String hexStr = Integer.toHexString(decimal);
+                    </pre>
+                    <p><strong>Output:</strong> The hexadecimal value is "a".</p>
+                </li>
+            
+                <li>
+                    <strong>29. How to convert Octal to Decimal</strong>
+                    <pre>
+            String octalStr = "12";
+            int decimal = Integer.parseInt(octalStr, 8);
+                    </pre>
+                    <p><strong>Output:</strong> The decimal value is 10.</p>
+                </li>
+            
+                <li>
+                    <strong>30. How to convert Decimal to Octal</strong>
+                    <pre>
+            int decimal = 10;
+            String octalStr = Integer.toOctalString(decimal);
+                    </pre>
+                    <p><strong>Output:</strong> The octal value is "12".</p>
+                </li>
+            </ul>
+            
+           
+            <footer>
+                <p>&copy; 2024 Java Questions</p>
+            </footer>
+        </body>
+        </html>

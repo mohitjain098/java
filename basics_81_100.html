@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Java Programming Questions</h1>
+    </header>
+    <main>
+        <section class="question-list">
+            <h2>BASIC PROGRAMMING CONSTRUCTS</h2>
+
+            <title>Horizontal List</title>
+            <style>
+               
+             
+            </style>
+        </head>
+        <body>
+        
+            <ul>
+                <li><a href="basics.html">1-20</a></li>
+                <li><a href="basics_21_40.html">21-40</a></li>
+                <li><a href="basics_41_60.html">41-60</a></li>
+                <li><a href="basics_61_80.html">61-80</a></li>
+                <li><a href="basics_81_100.html">81-100</a></li>
+                <li><a href="basics_101_120.html">101-120</a></li>
+                <li><a href="basics_121_139.html">121-139</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <strong>81. Write a Java program to count total number of lines from a string</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class CountLines {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.println("Enter a string (use '.' to end):");
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while (!(line = scanner.nextLine()).equals(".")) {
+                        sb.append(line).append("\n");
+                    }
+                    
+                    String text = sb.toString();
+                    int lines = text.split("\n").length;
+                    System.out.println("Total number of lines: " + lines);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string (use '.' to end): Hello World, Java is great., ., Total number of lines: 2</p>
+                </li>
+            
+                <li>
+                    <strong>82. Write a Java program to sum values of an array</strong>
+                    <pre>public class SumArray {
+                public static void main(String[] args) {
+                    int[] array = {1, 2, 3, 4, 5};
+                    int sum = 0;
+            
+                    for (int num : array) {
+                        sum += num;
+                    }
+            
+                    System.out.println("Sum of array elements: " + sum);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Sum of array elements: 15</p>
+                </li>
+            
+                <li>
+                    <strong>83. Write a Java program to find the index of an array element</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class FindIndex {
+                public static void main(String[] args) {
+                    int[] array = {10, 20, 30, 40, 50};
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter the element to find: ");
+                    int element = scanner.nextInt();
+                    
+                    int index = -1;
+                    for (int i = 0; i < array.length; i++) {
+                        if (array[i] == element) {
+                            index = i;
+                            break;
+                        }
+                    }
+            
+                    if (index != -1) {
+                        System.out.println("Element found at index: " + index);
+                    } else {
+                        System.out.println("Element not found in the array.");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter the element to find: 30, Element found at index: 2</p>
+                </li>
+            
+                <li>
+                    <strong>84. Write a Java program to calculate the average value of array elements</strong>
+                    <pre>public class AverageArray {
+                public static void main(String[] args) {
+                    int[] array = {10, 20, 30, 40, 50};
+                    int sum = 0;
+            
+                    for (int num : array) {
+                        sum += num;
+                    }
+            
+                    double average = (double) sum / array.length;
+                    System.out.println("Average of array elements: " + average);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Average of array elements: 30.0</p>
+                </li>
+            
+                <li>
+                    <strong>85. Write a Java program to test if an array contains a specific value</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class ContainsValue {
+                public static void main(String[] args) {
+                    int[] array = {1, 2, 3, 4, 5};
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a value to check: ");
+                    int value = scanner.nextInt();
+                    
+                    boolean found = false;
+                    for (int num : array) {
+                        if (num == value) {
+                            found = true;
+                            break;
+                        }
+                    }
+            
+                    if (found) {
+                        System.out.println("Array contains the value: " + value);
+                    } else {
+                        System.out.println("Array does not contain the value: " + value);
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a value to check: 3, Array contains the value: 3</p>
+                </li>
+            
+                <li>
+                    <strong>86. Write a Java program to find the maximum and minimum value of an array</strong>
+                    <pre>public class MinMaxArray {
+                public static void main(String[] args) {
+                    int[] array = {3, 5, 1, 9, 7};
+                    int max = array[0];
+                    int min = array[0];
+            
+                    for (int num : array) {
+                        if (num > max) {
+                            max = num;
+                        }
+                        if (num < min) {
+                            min = num;
+                        }
+                    }
+            
+                    System.out.println("Maximum value: " + max);
+                    System.out.println("Minimum value: " + min);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Maximum value: 9, Minimum value: 1</p>
+                </li>
+            
+                <li>
+                    <strong>87. Write a Java program to insert an element (specific position) into an array</strong>
+                    <pre>import java.util.Arrays;
+            import java.util.Scanner;
+            
+            public class InsertElement {
+                public static void main(String[] args) {
+                    int[] array = {1, 2, 3, 4, 5};
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter the element to insert: ");
+                    int element = scanner.nextInt();
+                    System.out.print("Enter the position to insert (0-5): ");
+                    int position = scanner.nextInt();
+                    
+                    if (position < 0 || position > array.length) {
+                        System.out.println("Invalid position!");
+                        return;
+                    }
+            
+                    int[] newArray = new int[array.length + 1];
+                    for (int i = 0; i < position; i++) {
+                        newArray[i] = array[i];
+                    }
+                    newArray[position] = element;
+                    for (int i = position; i < array.length; i++) {
+                        newArray[i + 1] = array[i];
+                    }
+            
+                    System.out.println("Array after insertion: " + Arrays.toString(newArray));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter the element to insert: 10, Enter the position to insert (0-5): 2, Array after insertion: [1, 2, 10, 3, 4, 5]</p>
+                </li>
+            
+                <li>
+                    <strong>88. Write a Java program to reverse an array of integer values</strong>
+                    <pre>import java.util.Arrays;
+            
+            public class ReverseArray {
+                public static void main(String[] args) {
+                    int[] array = {1, 2, 3, 4, 5};
+                    int n = array.length;
+            
+                    for (int i = 0; i < n / 2; i++) {
+                        int temp = array[i];
+                        array[i] = array[n - i - 1];
+                        array[n - i - 1] = temp;
+                    }
+            
+                    System.out.println("Reversed array: " + Arrays.toString(array));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Reversed array: [5, 4, 3, 2, 1]</p>
+                </li>
+            
+                <li>
+                    <strong>89. Write a Java program to find the common elements between two arrays</strong>
+                    <pre>import java.util.HashSet;
+            
+            public class CommonElements {
+                public static void main(String[] args) {
+                    int[] array1 = {1, 2, 3, 4, 5};
+                    int[] array2 = {4, 5, 6, 7, 8};
+                    HashSet<Integer> set = new HashSet<>();
+            
+                    for (int num : array1) {
+                        set.add(num);
+                    }
+            
+                    System.out.println("Common elements:");
+                    for (int num : array2) {
+                        if (set.contains(num)) {
+                            System.out.println(num);
+                        }
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Common elements: 4, 5</p>
+                </li>
+            
+                <li>
+                    <strong>90. Write a Java program to find the duplicate values of an array of integer values</strong>
+                    <pre>import java.util.HashSet;
+            
+            public class DuplicateValues {
+                public static void main(String[] args) {
+                    int[] array = {1, 2, 3, 2, 1, 4};
+                    HashSet<Integer> set = new HashSet<>();
+                    System.out.println("Duplicate values:");
+            
+                    for (int num : array) {
+                        if (!set.add(num)) {
+                            System.out.println(num);
+                        }
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Duplicate values: 2, 1</p>
+                </li>
+            
+                <li>
+                    <strong>91. Write a Java program to convert an array to ArrayList</strong>
+                    <pre>import java.util.ArrayList;
+            import java.util.Arrays;
+            
+            public class ArrayToArrayList {
+                public static void main(String[] args) {
+                    String[] array = {"Apple", "Banana", "Cherry"};
+                    ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(array));
+            
+                    System.out.println("ArrayList: " + arrayList);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> ArrayList: [Apple, Banana, Cherry]</p>
+                </li>
+            
+                <li>
+                    <strong>92. Write a Java program to add two matrices of the same size</strong>
+                    <pre>public class AddMatrices {
+                public static void main(String[] args) {
+                    int[][] matrix1 = {{1, 2, 3}, {4, 5, 6}};
+                    int[][] matrix2 = {{7, 8, 9}, {1, 2, 3}};
+                    int[][] result = new int[matrix1.length][matrix1[0].length];
+            
+                    for (int i = 0; i < matrix1.length; i++) {
+                        for (int j = 0; j < matrix1[i].length; j++) {
+                            result[i][j] = matrix1[i][j] + matrix2[i][j];
+                        }
+                    }
+            
+                    System.out.println("Resultant Matrix:");
+                    for (int[] row : result) {
+                        for (int val : row) {
+                            System.out.print(val + " ");
+                        }
+                        System.out.println();
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Resultant Matrix: <br>8 10 12 <br>5 7 9 <br></p>
+                </li>
+            
+                <li>
+                    <strong>93. Write a Java program to find second largest number from the array</strong>
+                    <pre>import java.util.Arrays;
+            
+            public class SecondLargest {
+                public static void main(String[] args) {
+                    int[] array = {3, 1, 4, 4, 5, 5};
+                    Arrays.sort(array);
+                    int secondLargest = array[array.length - 2];
+            
+                    System.out.println("Second largest number: " + secondLargest);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Second largest number: 4</p>
+                </li>
+            
+                <li>
+                    <strong>94. Write a Java program to find second lowest number from the array</strong>
+                    <pre>import java.util.Arrays;
+            
+            public class SecondLowest {
+                public static void main(String[] args) {
+                    int[] array = {3, 1, 4, 1, 5, 9};
+                    Arrays.sort(array);
+                    int secondLowest = array[1];
+            
+                    System.out.println("Second lowest number: " + secondLowest);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Second lowest number: 1</p>
+                </li>
+            
+                <li>
+                    <strong>95. Write a Java program to find the number of even and odd integers in a given array of integers</strong>
+                    <pre>public class EvenOddCount {
+                public static void main(String[] args) {
+                    int[] array = {1, 2, 3, 4, 5, 6};
+                    int evenCount = 0;
+                    int oddCount = 0;
+            
+                    for (int num : array) {
+                        if (num % 2 == 0) {
+                            evenCount++;
+                        } else {
+                            oddCount++;
+                        }
+                    }
+            
+                    System.out.println("Even numbers: " + evenCount);
+                    System.out.println("Odd numbers: " + oddCount);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Even numbers: 3, Odd numbers: 3</p>
+                </li>
+            
+                <li>
+                    <strong>96. Write a Java program to get the difference between the largest and smallest values in an array of integers</strong>
+                    <pre>public class DiffMinMax {
+                public static void main(String[] args) {
+                    int[] array = {3, 5, 1, 9, 7};
+                    int max = array[0];
+                    int min = array[0];
+            
+                    for (int num : array) {
+                        if (num > max) {
+                            max = num;
+                        }
+                        if (num < min) {
+                            min = num;
+                        }
+                    }
+            
+                    int difference = max - min;
+                    System.out.println("Difference between largest and smallest: " + difference);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Difference between largest and smallest: 8</p>
+                </li>
+            
+                <li>
+                    <strong>97. Write a Java program to segregate all 0s on left side and all 1s on right side of a given array of 0s and 1s</strong>
+                    <pre>public class SegregateZerosOnes {
+                public static void main(String[] args) {
+                    int[] array = {0, 1, 0, 1, 0, 1};
+                    int left = 0, right = array.length - 1;
+            
+                    while (left < right) {
+                        while (array[left] == 0 && left < right) {
+                            left++;
+                        }
+                        while (array[right] == 1 && left < right) {
+                            right--;
+                        }
+                        if (left < right) {
+                            int temp = array[left];
+                            array[left] = array[right];
+                            array[right] = temp;
+                        }
+                    }
+            
+                    System.out.println("Array after segregation: " + Arrays.toString(array));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Array after segregation: [0, 0, 0, 1, 1, 1]</p>
+                </li>
+            
+                <li>
+                    <strong>98. Write a Java program to cyclically rotate a given array clockwise by one</strong>
+                    <pre>public class RotateArray {
+                public static void main(String[] args) {
+                    int[] array = {1, 2, 3, 4, 5};
+                    int last = array[array.length - 1];
+            
+                    for (int i = array.length - 1; i > 0; i--) {
+                        array[i] = array[i - 1];
+                    }
+                    array[0] = last;
+            
+                    System.out.println("Array after rotation: " + Arrays.toString(array));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Array after rotation: [5, 1, 2, 3, 4]</p>
+                </li>
+            
+                <li>
+                    <strong>99. Java program to print all unique elements in an array</strong>
+                    <pre>import java.util.HashSet;
+            
+            public class UniqueElements {
+                public static void main(String[] args) {
+                    int[] array = {1, 2, 3, 2, 1, 4};
+                    HashSet<Integer> uniqueSet = new HashSet<>();
+            
+                    System.out.println("Unique elements:");
+                    for (int num : array) {
+                        uniqueSet.add(num);
+                    }
+            
+                    for (int unique : uniqueSet) {
+                        System.out.println(unique);
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Unique elements: 1, 2, 3, 4</p>
+                </li>
+            
+                <li>
+                    <strong>100. Write a Java Program to Sort the Array in Ascending Order</strong>
+                    <pre>import java.util.Arrays;
+            
+            public class SortArray {
+                public static void main(String[] args) {
+                    int[] array = {5, 2, 9, 1, 5, 6};
+                    Arrays.sort(array);
+            
+                    System.out.println("Sorted array: " + Arrays.toString(array));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Sorted array: [1, 2, 5, 5, 6, 9]</p>
+                </li>
+            </ul>
+            
+        </main>
+        <footer>
+            <p>&copy; 2024 Java Questions</p>
+        </footer>
+    </body>
+    </html>

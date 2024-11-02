@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Java Programming Questions</h1>
+    </header>
+    <main>
+        <section class="question-list">
+            <h2>BASIC PROGRAMMING CONSTRUCTS</h2>
+
+            <title>Horizontal List</title>
+            <style>
+               
+             
+            </style>
+        </head>
+        <body>
+        
+            <ul>
+                <li><a href="basics.html">1-20</a></li>
+                <li><a href="basics_21_40.html">21-40</a></li>
+                <li><a href="basics_41_60.html">41-60</a></li>
+                <li><a href="basics_61_80.html">61-80</a></li>
+                <li><a href="basics_81_100.html">81-100</a></li>
+                <li><a href="basics_101_120.html">101-120</a></li>
+                <li><a href="basics_121_139.html">121-139</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <strong>101. Write a Java Program to Sort the Array in Descending Order</strong>
+                    <pre>import java.util.Arrays;
+            import java.util.Collections;
+            
+            public class SortDescending {
+                public static void main(String[] args) {
+                    Integer[] array = {5, 2, 9, 1, 5, 6};
+                    Arrays.sort(array, Collections.reverseOrder());
+            
+                    System.out.println("Sorted array in descending order: " + Arrays.toString(array));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Sorted array in descending order: [9, 6, 5, 5, 2, 1]</p>
+                </li>
+            
+                <li>
+                    <strong>102. Write a Java Program to Sort Names in Alphabetical Order</strong>
+                    <pre>import java.util.Arrays;
+            
+            public class SortNames {
+                public static void main(String[] args) {
+                    String[] names = {"John", "Alice", "Bob", "Charlie"};
+                    Arrays.sort(names);
+            
+                    System.out.println("Names in alphabetical order: " + Arrays.toString(names));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Names in alphabetical order: [Alice, Bob, Charlie, John]</p>
+                </li>
+            
+                <li>
+                    <strong>103. Write a Java Program to Display Transpose Matrix</strong>
+                    <pre>public class TransposeMatrix {
+                public static void main(String[] args) {
+                    int[][] matrix = {{1, 2, 3}, {4, 5, 6}};
+                    int[][] transpose = new int[matrix[0].length][matrix.length];
+            
+                    for (int i = 0; i < matrix.length; i++) {
+                        for (int j = 0; j < matrix[i].length; j++) {
+                            transpose[j][i] = matrix[i][j];
+                        }
+                    }
+            
+                    System.out.println("Transpose of the matrix:");
+                    for (int[] row : transpose) {
+                        for (int val : row) {
+                            System.out.print(val + " ");
+                        }
+                        System.out.println();
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Transpose of the matrix:<br>1 4 <br>2 5 <br>3 6 <br></p>
+                </li>
+            
+                <li>
+                    <strong>104. Write a Java Program to Search Key Elements in an Array</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class SearchElement {
+                public static void main(String[] args) {
+                    int[] array = {1, 2, 3, 4, 5};
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter the element to search: ");
+                    int key = scanner.nextInt();
+                    boolean found = false;
+            
+                    for (int num : array) {
+                        if (num == key) {
+                            found = true;
+                            break;
+                        }
+                    }
+            
+                    if (found) {
+                        System.out.println("Element " + key + " found in the array.");
+                    } else {
+                        System.out.println("Element " + key + " not found in the array.");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter the element to search: 3, Element 3 found in the array.</p>
+                </li>
+            
+                <li>
+                    <strong>105. Write a Java Program to Accept the Marks of a Student and find Total Marks and Percentage</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class StudentMarks {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter marks for 5 subjects: ");
+                    int total = 0;
+                    
+                    for (int i = 0; i < 5; i++) {
+                        total += scanner.nextInt();
+                    }
+            
+                    double percentage = total / 5.0;
+                    System.out.println("Total Marks: " + total);
+                    System.out.println("Percentage: " + percentage + "%");
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter marks for 5 subjects: 85 90 78 92 88, Total Marks: 433, Percentage: 86.6%</p>
+                </li>
+            
+                <li>
+                    <strong>106. Write a Java program to print numbers from 1 to 10 using loop</strong>
+                    <pre>public class PrintNumbers {
+                public static void main(String[] args) {
+                    for (int i = 1; i <= 10; i++) {
+                        System.out.print(i + " ");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> 1 2 3 4 5 6 7 8 9 10</p>
+                </li>
+            
+                <li>
+                    <strong>107. Write a java program to calculate the sum of first 10 natural numbers using loop</strong>
+                    <pre>public class SumNaturalNumbers {
+                public static void main(String[] args) {
+                    int sum = 0;
+                    for (int i = 1; i <= 10; i++) {
+                        sum += i;
+                    }
+                    System.out.println("Sum of first 10 natural numbers: " + sum);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Sum of first 10 natural numbers: 55</p>
+                </li>
+            
+                <li>
+                    <strong>108. Write a Java program to print multiplication table of given number</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class MultiplicationTable {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a number: ");
+                    int num = scanner.nextInt();
+                    
+                    for (int i = 1; i <= 10; i++) {
+                        System.out.println(num + " x " + i + " = " + (num * i));
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a number: 5<br>5 x 1 = 5<br>5 x 2 = 10<br>5 x 3 = 15<br>5 x 4 = 20<br>5 x 5 = 25<br>5 x 6 = 30<br>5 x 7 = 35<br>5 x 8 = 40<br>5 x 9 = 45<br>5 x 10 = 50</p>
+                </li>
+            
+                <li>
+                    <strong>109. Write a Java program to find the factorial value of any number entered through the keyboard</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class Factorial {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a number: ");
+                    int num = scanner.nextInt();
+                    long factorial = 1;
+            
+                    for (int i = 1; i <= num; i++) {
+                        factorial *= i;
+                    }
+            
+                    System.out.println("Factorial of " + num + " is: " + factorial);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a number: 5, Factorial of 5 is: 120</p>
+                </li>
+            
+                <li>
+                    <strong>110. Write a Java program that prompts the user to input an integer and then outputs the number with the digits reversed order</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class ReverseDigits {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter an integer: ");
+                    int num = scanner.nextInt();
+                    int reversed = 0;
+            
+                    while (num != 0) {
+                        reversed = reversed * 10 + num % 10;
+                        num /= 10;
+                    }
+            
+                    System.out.println("Reversed number: " + reversed);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter an integer: 12345, Reversed number: 54321</p>
+                </li>
+            
+                <li>
+                    <strong>111. Write a Java program that reads a set of integers, and then prints the sum of the even and odd integers using loop</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class SumEvenOdd {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    int evenSum = 0;
+                    int oddSum = 0;
+                    System.out.print("Enter integers (0 to stop): ");
+                    int num;
+            
+                    while ((num = scanner.nextInt()) != 0) {
+                        if (num % 2 == 0) {
+                            evenSum += num;
+                        } else {
+                            oddSum += num;
+                        }
+                    }
+            
+                    System.out.println("Sum of even numbers: " + evenSum);
+                    System.out.println("Sum of odd numbers: " + oddSum);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter integers (0 to stop): 1 2 3 4 5 0, Sum of even numbers: 6, Sum of odd numbers: 9</p>
+                </li>
+            
+                <li>
+                    <strong>112. Write a Java program to check whether the number is a prime number or not</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class PrimeNumber {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a number: ");
+                    int num = scanner.nextInt();
+                    boolean isPrime = true;
+            
+                    if (num <= 1) {
+                        isPrime = false;
+                    } else {
+                        for (int i = 2; i <= Math.sqrt(num); i++) {
+                            if (num % i == 0) {
+                                isPrime = false;
+                                break;
+                            }
+                        }
+                    }
+            
+                    if (isPrime) {
+                        System.out.println(num + " is a prime number.");
+                    } else {
+                        System.out.println(num + " is not a prime number.");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a number: 7, 7 is a prime number.</p>
+                </li>
+            
+                <li>
+                    <strong>113. Write a Java program to calculate HCF of Two given numbers using loop</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class HCF {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter first number: ");
+                    int num1 = scanner.nextInt();
+                    System.out.print("Enter second number: ");
+                    int num2 = scanner.nextInt();
+                    int hcf = 1;
+            
+                    for (int i = 1; i <= Math.min(num1, num2); i++) {
+                        if (num1 % i == 0 && num2 % i == 0) {
+                            hcf = i;
+                        }
+                    }
+            
+                    System.out.println("HCF of " + num1 + " and " + num2 + " is: " + hcf);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter first number: 12, Enter second number: 18, HCF of 12 and 18 is: 6</p>
+                </li>
+            
+                <li>
+                    <strong>114. Write a Java program to enter the numbers till the user wants and at the end it should display the count of positive, negative and zeros</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class CountNumbers {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    int positiveCount = 0;
+                    int negativeCount = 0;
+                    int zeroCount = 0;
+                    System.out.print("Enter numbers (0 to stop): ");
+                    int num;
+            
+                    while ((num = scanner.nextInt()) != 0) {
+                        if (num > 0) {
+                            positiveCount++;
+                        } else if (num < 0) {
+                            negativeCount++;
+                        } else {
+                            zeroCount++;
+                        }
+                    }
+            
+                    System.out.println("Positive count: " + positiveCount);
+                    System.out.println("Negative count: " + negativeCount);
+                    System.out.println("Zero count: " + zeroCount);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter numbers (0 to stop): 1 -1 0 2 -3 0, Positive count: 3, Negative count: 2, Zero count: 2</p>
+                </li>
+            
+                <li>
+                    <strong>115. Write a Java program to enter the numbers till the user wants and at the end the program should display the largest and smallest numbers entered</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class LargestSmallest {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter numbers (0 to stop): ");
+                    int num;
+                    int largest = Integer.MIN_VALUE;
+                    int smallest = Integer.MAX_VALUE;
+            
+                    while ((num = scanner.nextInt()) != 0) {
+                        if (num > largest) {
+                            largest = num;
+                        }
+                        if (num < smallest) {
+                            smallest = num;
+                        }
+                    }
+            
+                    System.out.println("Largest number: " + largest);
+                    System.out.println("Smallest number: " + smallest);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter numbers (0 to stop): 3 5 1 4 0, Largest number: 5, Smallest number: 1</p>
+                </li>
+            
+                <li>
+                    <strong>116. Write a Java program to print out all Armstrong numbers between 1 to 600 using loop</strong>
+                    <pre>public class ArmstrongNumbers {
+                public static void main(String[] args) {
+                    System.out.println("Armstrong numbers between 1 and 600:");
+                    for (int num = 1; num <= 600; num++) {
+                        int sum = 0;
+                        int original = num;
+                        int length = String.valueOf(num).length();
+            
+                        while (original != 0) {
+                            int digit = original % 10;
+                            sum += Math.pow(digit, length);
+                            original /= 10;
+                        }
+            
+                        if (sum == num) {
+                            System.out.print(num + " ");
+                        }
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Armstrong numbers between 1 and 600: 1 2 3 4 5 6 7 8 9 153 370 371 407</p>
+                </li>
+            
+                <li>
+                    <strong>117. Write a java program to count total number of notes in entered amount using loop</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class CountNotes {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter amount: ");
+                    int amount = scanner.nextInt();
+                    int[] notes = {2000, 500, 100, 50, 20, 10, 5, 1};
+                    int[] count = new int[notes.length];
+            
+                    for (int i = 0; i < notes.length; i++) {
+                        if (amount >= notes[i]) {
+                            count[i] = amount / notes[i];
+                            amount %= notes[i];
+                        }
+                    }
+            
+                    System.out.println("Total number of notes:");
+                    for (int i = 0; i < notes.length; i++) {
+                        if (count[i] > 0) {
+                            System.out.println(notes[i] + " : " + count[i]);
+                        }
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter amount: 5760<br>Total number of notes:<br>2000 : 2<br>500 : 1<br>100 : 2<br>50 : 1<br>10 : 1<br></p>
+                </li>
+            
+                <li>
+                    <strong>118. Write a Java program to print Fibonacci series of n terms where n is input by user using loop</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class FibonacciSeries {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter number of terms: ");
+                    int n = scanner.nextInt();
+                    int a = 0, b = 1;
+            
+                    System.out.print("Fibonacci series: ");
+                    for (int i = 1; i <= n; i++) {
+                        System.out.print(a + " ");
+                        int next = a + b;
+                        a = b;
+                        b = next;
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter number of terms: 5<br>Fibonacci series: 0 1 1 2 3</p>
+                </li>
+            
+                <li>
+                    <strong>119. Write a java program to calculate the sum of following series where n is input by user</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class SeriesSum {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter value of n: ");
+                    int n = scanner.nextInt();
+                    double sum = 0;
+            
+                    for (int i = 1; i <= n; i++) {
+                        sum += 1.0 / i;
+                    }
+            
+                    System.out.println("Sum of the series: " + sum);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter value of n: 5, Sum of the series: 2.283333333333333</p>
+                </li>
+            
+                <li>
+                    <strong>120. Write a Java method to compute the average of three numbers</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class AverageOfThree {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter three numbers: ");
+                    double num1 = scanner.nextDouble();
+                    double num2 = scanner.nextDouble();
+                    double num3 = scanner.nextDouble();
+            
+                    double average = computeAverage(num1, num2, num3);
+                    System.out.println("Average: " + average);
+                }
+            
+                public static double computeAverage(double a, double b, double c) {
+                    return (a + b + c) / 3;
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter three numbers: 4 5 6, Average: 5.0</p>
+                </li>
+            </ul>
+            
+        </main>
+        <footer>
+            <p>&copy; 2024 Java Questions</p>
+        </footer>
+    </body>
+    </html>

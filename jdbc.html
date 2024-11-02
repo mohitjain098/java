@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Java Programming Questions</h1>
+    </header>
+    <main>
+        <li><a href="index.html">HOME</a></li>
+        <section class="question-list">
+            <h2>JAVA DATABASE CONNECTIVITY</h2>
+
+        
+        </head>
+        <body>
+            <ul>
+                <li>
+                    <strong>1. Create the connection with MySQL Database and manage the driver</strong>
+                    <pre>
+            import java.sql.Connection;
+            import java.sql.DriverManager;
+            import java.sql.SQLException;
+            
+            public class DatabaseConnection {
+                public static void main(String[] args) {
+                    String url = "jdbc:mysql://localhost:3306/yourDatabase";
+                    String user = "yourUsername";
+                    String password = "yourPassword";
+            
+                    try {
+                        Connection connection = DriverManager.getConnection(url, user, password);
+                        System.out.println("Connection established!");
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Connection established!</p>
+                </li>
+                
+                <li>
+                    <strong>2. Create the table in the database from Java API</strong>
+                    <pre>
+            import java.sql.Connection;
+            import java.sql.DriverManager;
+            import java.sql.Statement;
+            
+            public class CreateTable {
+                public static void main(String[] args) {
+                    String url = "jdbc:mysql://localhost:3306/yourDatabase";
+                    String user = "yourUsername";
+                    String password = "yourPassword";
+            
+                    String createTableSQL = "CREATE TABLE Students ("
+                            + "ID INT PRIMARY KEY AUTO_INCREMENT, "
+                            + "Name VARCHAR(100), "
+                            + "Age INT)";
+            
+                    try (Connection connection = DriverManager.getConnection(url, user, password);
+                         Statement statement = connection.createStatement()) {
+                        statement.execute(createTableSQL);
+                        System.out.println("Table created successfully!");
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Table created successfully!</p>
+                </li>
+                
+                <li>
+                    <strong>3. Insert the row in the table in the database from Java API</strong>
+                    <pre>
+            import java.sql.Connection;
+            import java.sql.DriverManager;
+            import java.sql.PreparedStatement;
+            
+            public class InsertRow {
+                public static void main(String[] args) {
+                    String url = "jdbc:mysql://localhost:3306/yourDatabase";
+                    String user = "yourUsername";
+                    String password = "yourPassword";
+            
+                    String insertSQL = "INSERT INTO Students (Name, Age) VALUES (?, ?)";
+            
+                    try (Connection connection = DriverManager.getConnection(url, user, password);
+                         PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
+                        preparedStatement.setString(1, "John Doe");
+                        preparedStatement.setInt(2, 25);
+                        preparedStatement.executeUpdate();
+                        System.out.println("Row inserted successfully!");
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Row inserted successfully!</p>
+                </li>
+            
+                <li>
+                    <strong>4. Update the row in the table in the database from Java API</strong>
+                    <pre>
+            import java.sql.Connection;
+            import java.sql.DriverManager;
+            import java.sql.PreparedStatement;
+            
+            public class UpdateRow {
+                public static void main(String[] args) {
+                    String url = "jdbc:mysql://localhost:3306/yourDatabase";
+                    String user = "yourUsername";
+                    String password = "yourPassword";
+            
+                    String updateSQL = "UPDATE Students SET Age = ? WHERE Name = ?";
+            
+                    try (Connection connection = DriverManager.getConnection(url, user, password);
+                         PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) {
+                        preparedStatement.setInt(1, 26);
+                        preparedStatement.setString(2, "John Doe");
+                        preparedStatement.executeUpdate();
+                        System.out.println("Row updated successfully!");
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Row updated successfully!</p>
+                </li>
+            
+                <li>
+                    <strong>5. Delete the row in the table in the database from Java API</strong>
+                    <pre>
+            import java.sql.Connection;
+            import java.sql.DriverManager;
+            import java.sql.PreparedStatement;
+            
+            public class DeleteRow {
+                public static void main(String[] args) {
+                    String url = "jdbc:mysql://localhost:3306/yourDatabase";
+                    String user = "yourUsername";
+                    String password = "yourPassword";
+            
+                    String deleteSQL = "DELETE FROM Students WHERE Name = ?";
+            
+                    try (Connection connection = DriverManager.getConnection(url, user, password);
+                         PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL)) {
+                        preparedStatement.setString(1, "John Doe");
+                        preparedStatement.executeUpdate();
+                        System.out.println("Row deleted successfully!");
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Row deleted successfully!</p>
+                </li>
+            
+                <li>
+                    <strong>6. Select multiple rows from the database table in Java API and show the result on the screen</strong>
+                    <pre>
+            import java.sql.Connection;
+            import java.sql.DriverManager;
+            import java.sql.ResultSet;
+            import java.sql.Statement;
+            
+            public class SelectRows {
+                public static void main(String[] args) {
+                    String url = "jdbc:mysql://localhost:3306/yourDatabase";
+                    String user = "yourUsername";
+                    String password = "yourPassword";
+            
+                    String selectSQL = "SELECT * FROM Students";
+            
+                    try (Connection connection = DriverManager.getConnection(url, user, password);
+                         Statement statement = connection.createStatement();
+                         ResultSet resultSet = statement.executeQuery(selectSQL)) {
+                        while (resultSet.next()) {
+                            System.out.println("ID: " + resultSet.getInt("ID") + ", Name: " + resultSet.getString("Name") + ", Age: " + resultSet.getInt("Age"));
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Rows displayed on the screen.</p>
+                </li>
+            
+                <li>
+                    <strong>7. Create a Scrollable Readonly Resultset and ask the row number from the user and display that row on the screen</strong>
+                    <pre>
+            import java.sql.Connection;
+            import java.sql.DriverManager;
+            import java.sql.ResultSet;
+            import java.sql.Statement;
+            import java.util.Scanner;
+            
+            public class ScrollableResultSet {
+                public static void main(String[] args) {
+                    String url = "jdbc:mysql://localhost:3306/yourDatabase";
+                    String user = "yourUsername";
+                    String password = "yourPassword";
+            
+                    String selectSQL = "SELECT * FROM Students";
+            
+                    try (Connection connection = DriverManager.getConnection(url, user, password);
+                         Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                         ResultSet resultSet = statement.executeQuery(selectSQL);
+                         Scanner scanner = new Scanner(System.in)) {
+                        System.out.print("Enter row number: ");
+                        int rowNum = scanner.nextInt();
+                        if (resultSet.absolute(rowNum)) {
+                            System.out.println("ID: " + resultSet.getInt("ID") + ", Name: " + resultSet.getString("Name") + ", Age: " + resultSet.getInt("Age"));
+                        } else {
+                            System.out.println("Row not found.");
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Row displayed based on user input.</p>
+                </li>
+            
+                <li>
+                    <strong>8. Create a Scrollable Updateable Resultset and insert a new row, update an existing row and delete the row from Resultset and also the changes should be made to the database</strong>
+                    <pre>
+            import java.sql.Connection;
+            import java.sql.DriverManager;
+            import java.sql.ResultSet;
+            import java.sql.Statement;
+            import java.sql.PreparedStatement;
+            import java.util.Scanner;
+            
+            public class UpdateableResultSet {
+                public static void main(String[] args) {
+                    String url = "jdbc:mysql://localhost:3306/yourDatabase";
+                    String user = "yourUsername";
+                    String password = "yourPassword";
+            
+                    String selectSQL = "SELECT * FROM Students";
+            
+                    try (Connection connection = DriverManager.getConnection(url, user, password);
+                         Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                         ResultSet resultSet = statement.executeQuery(selectSQL);
+                         Scanner scanner = new Scanner(System.in)) {
+            
+                        // Insert a new row
+                        resultSet.moveToInsertRow();
+                        resultSet.updateString("Name", "Jane Doe");
+                        resultSet.updateInt("Age", 22);
+                        resultSet.insertRow();
+            
+                        // Update existing row
+                        resultSet.absolute(1);
+                        resultSet.updateInt("Age", 23);
+                        resultSet.updateRow();
+            
+                        // Delete a row
+                        resultSet.absolute(1);
+                        resultSet.deleteRow();
+            
+                        System.out.println("Changes made successfully!");
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Changes made successfully!</p>
+                </li>
+            
+                <li>
+                    <strong>9. Create a Java Program to show, insert, update, delete of the table in Java API through PreparedStatement</strong>
+                    <pre>
+            import java.sql.Connection;
+            import java.sql.DriverManager;
+            import java.sql.PreparedStatement;
+            import java.sql.ResultSet;
+            
+            public class PreparedStatementExample {
+                public static void main(String[] args) {
+                    String url = "jdbc:mysql://localhost:3306/yourDatabase";
+                    String user = "yourUsername";
+                    String password = "yourPassword";
+            
+                    try (Connection connection = DriverManager.getConnection(url, user, password)) {
+                        // Insert
+                        String insertSQL = "INSERT INTO Students (Name, Age) VALUES (?, ?)";
+                        try (PreparedStatement insertStmt = connection.prepareStatement(insertSQL)) {
+                            insertStmt.setString(1, "Alice");
+                            insertStmt.setInt(2, 20);
+                            insertStmt.executeUpdate();
+                        }
+            
+                        // Update
+                        String updateSQL = "UPDATE Students SET Age = ? WHERE Name = ?";
+                        try (PreparedStatement updateStmt = connection.prepareStatement(updateSQL)) {
+                            updateStmt.setInt(1, 21);
+                            updateStmt.setString(2, "Alice");
+                            updateStmt.executeUpdate();
+                        }
+            
+                        // Delete
+                        String deleteSQL = "DELETE FROM Students WHERE Name = ?";
+                        try (PreparedStatement deleteStmt = connection.prepareStatement(deleteSQL)) {
+                            deleteStmt.setString(1, "Alice");
+                            deleteStmt.executeUpdate();
+                        }
+            
+                        // Select
+                        String selectSQL = "SELECT * FROM Students";
+                        try (PreparedStatement selectStmt = connection.prepareStatement(selectSQL);
+                             ResultSet resultSet = selectStmt.executeQuery()) {
+                            while (resultSet.next()) {
+                                System.out.println("ID: " + resultSet.getInt("ID") + ", Name: " + resultSet.getString("Name") + ", Age: " + resultSet.getInt("Age"));
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Operations completed successfully!</p>
+                </li>
+            </ul>
+            
+           
+            <footer>
+                <p>&copy; 2024 Java Questions</p>
+            </footer>
+        </body>
+        </html>

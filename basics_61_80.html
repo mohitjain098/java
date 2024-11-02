@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Java Programming Questions</h1>
+    </header>
+    <main>
+        <section class="question-list">
+            <h2>BASIC PROGRAMMING CONSTRUCTS</h2>
+
+            <title>Horizontal List</title>
+            <style>
+               
+             
+            </style>
+        </head>
+        <body>
+        
+            <ul>
+                <li><a href="basics.html">1-20</a></li>
+                <li><a href="basics_21_40.html">21-40</a></li>
+                <li><a href="basics_41_60.html">41-60</a></li>
+                <li><a href="basics_61_80.html">61-80</a></li>
+                <li><a href="basics_81_100.html">81-100</a></li>
+                <li><a href="basics_101_120.html">101-120</a></li>
+                <li><a href="basics_121_139.html">121-139</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <strong>61. Write a Java program to display the n terms of odd natural numbers and their sum</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class OddNaturalNumbers {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter the number of terms: ");
+                    int n = scanner.nextInt();
+                    int sum = 0;
+            
+                    System.out.println("Odd natural numbers:");
+                    for (int i = 1; i <= n; i++) {
+                        int oddNumber = 2 * i - 1;
+                        System.out.println(oddNumber);
+                        sum += oddNumber;
+                    }
+                    System.out.println("Sum of odd natural numbers: " + sum);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter the number of terms: 5, Odd natural numbers: 1, 3, 5, 7, 9, Sum of odd natural numbers: 25</p>
+                </li>
+            
+                <li>
+                    <strong>62. Write a Java program to display the multiplication table of a given integer</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class MultiplicationTable {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter an integer: ");
+                    int number = scanner.nextInt();
+                    
+                    System.out.println("Multiplication table of " + number + ":");
+                    for (int i = 1; i <= 10; i++) {
+                        System.out.println(number + " x " + i + " = " + (number * i));
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter an integer: 3, Multiplication table of 3: 3 x 1 = 3, ..., 3 x 10 = 30</p>
+                </li>
+            
+                <li>
+                    <strong>63. Write a Java program that reads an integer and check whether it is negative, zero, or positive</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class CheckNumber {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter an integer: ");
+                    int number = scanner.nextInt();
+                    
+                    if (number > 0) {
+                        System.out.println(number + " is positive.");
+                    } else if (number < 0) {
+                        System.out.println(number + " is negative.");
+                    } else {
+                        System.out.println("The number is zero.");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter an integer: -5, -5 is negative.</p>
+                </li>
+            
+                <li>
+                    <strong>64. Write a Java program that reads a positive integer and count the number of digits</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class CountDigits {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a positive integer: ");
+                    int number = scanner.nextInt();
+                    
+                    int count = 0;
+                    while (number != 0) {
+                        number /= 10;
+                        count++;
+                    }
+                    
+                    System.out.println("Number of digits: " + count);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a positive integer: 12345, Number of digits: 5</p>
+                </li>
+            
+                <li>
+                    <strong>65. Write a Java program that accepts three numbers and check if all numbers are equal</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class AllNumbersEqual {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter three numbers: ");
+                    int a = scanner.nextInt();
+                    int b = scanner.nextInt();
+                    int c = scanner.nextInt();
+                    
+                    if (a == b && b == c) {
+                        System.out.println("All numbers are equal.");
+                    } else {
+                        System.out.println("All numbers are not equal.");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter three numbers: 5 5 5, All numbers are equal.</p>
+                </li>
+            
+                <li>
+                    <strong>66. Write a java program that accepts three numbers from the user and check if numbers are in “increasing” or “decreasing” order</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class OrderCheck {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter three numbers: ");
+                    int a = scanner.nextInt();
+                    int b = scanner.nextInt();
+                    int c = scanner.nextInt();
+                    
+                    if (a < b && b < c) {
+                        System.out.println("Numbers are in increasing order.");
+                    } else if (a > b && b > c) {
+                        System.out.println("Numbers are in decreasing order.");
+                    } else {
+                        System.out.println("Numbers are neither in increasing nor decreasing order.");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter three numbers: 1 2 3, Numbers are in increasing order.</p>
+                </li>
+            
+                <li>
+                    <strong>67. Write a Java program that determines a student’s grade</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class StudentGrade {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter marks: ");
+                    int marks = scanner.nextInt();
+                    
+                    if (marks >= 90) {
+                        System.out.println("Grade: A");
+                    } else if (marks >= 80) {
+                        System.out.println("Grade: B");
+                    } else if (marks >= 70) {
+                        System.out.println("Grade: C");
+                    } else if (marks >= 60) {
+                        System.out.println("Grade: D");
+                    } else {
+                        System.out.println("Grade: F");
+                    }
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter marks: 85, Grade: B</p>
+                </li>
+            
+                <li>
+                    <strong>68. Write a Java program to create a simple calculator</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class SimpleCalculator {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter first number: ");
+                    double num1 = scanner.nextDouble();
+                    System.out.print("Enter second number: ");
+                    double num2 = scanner.nextDouble();
+                    
+                    System.out.print("Select operation (+, -, *, /): ");
+                    char operation = scanner.next().charAt(0);
+                    double result = 0;
+                    
+                    switch (operation) {
+                        case '+':
+                            result = num1 + num2;
+                            break;
+                        case '-':
+                            result = num1 - num2;
+                            break;
+                        case '*':
+                            result = num1 * num2;
+                            break;
+                        case '/':
+                            result = num1 / num2;
+                            break;
+                        default:
+                            System.out.println("Invalid operation.");
+                            return;
+                    }
+                    
+                    System.out.println("Result: " + result);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter first number: 10, Enter second number: 5, Select operation (+, -, *, /): /, Result: 2.0</p>
+                </li>
+            
+                <li>
+                    <strong>69. Write a Java program to concatenate two strings</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class StringConcatenation {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter first string: ");
+                    String str1 = scanner.nextLine();
+                    System.out.print("Enter second string: ");
+                    String str2 = scanner.nextLine();
+                    
+                    String result = str1 + str2;
+                    System.out.println("Concatenated String: " + result);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter first string: Hello, Enter second string: World, Concatenated String: HelloWorld</p>
+                </li>
+            
+                <li>
+                    <strong>70. Write a Java program to convert all characters in a string to lowercase</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class ToLowerCase {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a string: ");
+                    String str = scanner.nextLine();
+                    
+                    String lowerCaseStr = str.toLowerCase();
+                    System.out.println("Lowercase String: " + lowerCaseStr);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string: Hello World, Lowercase String: hello world</p>
+                </li>
+            
+                <li>
+                    <strong>71. Write a Java program to convert all characters in a string to uppercase</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class ToUpperCase {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a string: ");
+                    String str = scanner.nextLine();
+                    
+                    String upperCaseStr = str.toUpperCase();
+                    System.out.println("Uppercase String: " + upperCaseStr);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string: Hello World, Uppercase String: HELLO WORLD</p>
+                </li>
+            
+                <li>
+                    <strong>72. Write a Java program to trim a string (remove whitespaces)</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class TrimString {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a string: ");
+                    String str = scanner.nextLine();
+                    
+                    String trimmedStr = str.trim();
+                    System.out.println("Trimmed String: " + trimmedStr);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string:   Hello World  , Trimmed String: Hello World</p>
+                </li>
+            
+                <li>
+                    <strong>73. Write a Java program to get a substring of a given string between two specified positions</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class SubstringExample {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a string: ");
+                    String str = scanner.nextLine();
+                    System.out.print("Enter start index: ");
+                    int start = scanner.nextInt();
+                    System.out.print("Enter end index: ");
+                    int end = scanner.nextInt();
+                    
+                    String substring = str.substring(start, end);
+                    System.out.println("Substring: " + substring);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string: Hello World, Enter start index: 0, Enter end index: 5, Substring: Hello</p>
+                </li>
+            
+                <li>
+                    <strong>74. Write a Java program to replace all the ‘d’ characters with ‘f’ characters</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class ReplaceCharacter {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a string: ");
+                    String str = scanner.nextLine();
+                    
+                    String replacedStr = str.replace('d', 'f');
+                    System.out.println("Replaced String: " + replacedStr);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string: dad, Replaced String: faf</p>
+                </li>
+            
+                <li>
+                    <strong>75. Write a java program to get the length of a given string</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class StringLength {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a string: ");
+                    String str = scanner.nextLine();
+                    
+                    int length = str.length();
+                    System.out.println("Length of the string: " + length);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string: Hello, Length of the string: 5</p>
+                </li>
+            
+                <li>
+                    <strong>76. Write a java program to print current date and time in the specified format</strong>
+                    <pre>import java.text.SimpleDateFormat;
+            import java.util.Date;
+            
+            public class CurrentDateTime {
+                public static void main(String[] args) {
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                    Date date = new Date();
+                    
+                    System.out.println("Current date and time: " + formatter.format(date));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Current date and time: 02/11/2024 12:00:00 (example output)</p>
+                </li>
+            
+                <li>
+                    <strong>77. Write a Java program to get the character at the given index within the String</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class CharacterAtIndex {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a string: ");
+                    String str = scanner.nextLine();
+                    System.out.print("Enter index: ");
+                    int index = scanner.nextInt();
+                    
+                    char character = str.charAt(index);
+                    System.out.println("Character at index " + index + ": " + character);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string: Hello, Enter index: 1, Character at index 1: e</p>
+                </li>
+            
+                <li>
+                    <strong>78. Write a java program to remove a particular character from a string</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class RemoveCharacter {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a string: ");
+                    String str = scanner.nextLine();
+                    System.out.print("Enter character to remove: ");
+                    char toRemove = scanner.next().charAt(0);
+                    
+                    String result = str.replace(String.valueOf(toRemove), "");
+                    System.out.println("String after removal: " + result);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string: Hello, Enter character to remove: l, String after removal: Heo</p>
+                </li>
+            
+                <li>
+                    <strong>79. Write a java program to reverse a String</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class ReverseString {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a string: ");
+                    String str = scanner.nextLine();
+                    
+                    String reversedStr = new StringBuilder(str).reverse().toString();
+                    System.out.println("Reversed String: " + reversedStr);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string: Hello, Reversed String: olleH</p>
+                </li>
+            
+                <li>
+                    <strong>80. Write a java program to remove HTML tags from a string</strong>
+                    <pre>import java.util.Scanner;
+            
+            public class RemoveHtmlTags {
+                public static void main(String[] args) {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.print("Enter a string with HTML tags: ");
+                    String str = scanner.nextLine();
+                    
+                    String noHtmlStr = str.replaceAll("&lt;.*?&gt;", "");
+                    System.out.println("String without HTML tags: " + noHtmlStr);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Enter a string with HTML tags: &lt;b&gt;Hello&lt;/b&gt;, String without HTML tags: Hello</p>
+                </li>
+            </ul>
+            
+        </main>
+        <footer>
+            <p>&copy; 2024 Java Questions</p>
+        </footer>
+    </body>
+    </html>

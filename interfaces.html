@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Java Programming Questions</h1>
+    </header>
+    <main>
+        <li><a href="index.html">HOME</a></li>
+        <section class="question-list">
+            <h2>INTERFACES </h2>
+
+        
+        </head>
+        <body>
+            <ul>
+                <li>
+                    <strong>1. Write a Java program to create an interface Shape with the getArea() method. Create three classes Rectangle, Circle, and Triangle that implement the Shape interface. Implement the getArea() method for each of the three classes.</strong>
+                    <pre>interface Shape {
+                double getArea();
+            }
+            
+            class Rectangle implements Shape {
+                private double width, height;
+            
+                public Rectangle(double width, double height) {
+                    this.width = width;
+                    this.height = height;
+                }
+            
+                public double getArea() {
+                    return width * height;
+                }
+            }
+            
+            class Circle implements Shape {
+                private double radius;
+            
+                public Circle(double radius) {
+                    this.radius = radius;
+                }
+            
+                public double getArea() {
+                    return Math.PI * radius * radius;
+                }
+            }
+            
+            class Triangle implements Shape {
+                private double base, height;
+            
+                public Triangle(double base, double height) {
+                    this.base = base;
+                    this.height = height;
+                }
+            
+                public double getArea() {
+                    return 0.5 * base * height;
+                }
+            }
+            
+            public class ShapeTest {
+                public static void main(String[] args) {
+                    Shape rectangle = new Rectangle(5, 10);
+                    Shape circle = new Circle(7);
+                    Shape triangle = new Triangle(4, 3);
+                    
+                    System.out.println("Rectangle Area: " + rectangle.getArea());
+                    System.out.println("Circle Area: " + circle.getArea());
+                    System.out.println("Triangle Area: " + triangle.getArea());
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Rectangle Area: 50.0<br>Circle Area: 153.93804002589985<br>Triangle Area: 6.0</p>
+                </li>
+            
+                <li>
+                    <strong>2. Write a Java program to create a Animal interface with a method called bark() that takes no arguments and returns void. Create a Dog class that implements Animal and overrides bark() to print "Dog is barking".</strong>
+                    <pre>interface Animal {
+                void bark();
+            }
+            
+            class Dog implements Animal {
+                public void bark() {
+                    System.out.println("Dog is barking");
+                }
+            }
+            
+            public class AnimalTest {
+                public static void main(String[] args) {
+                    Animal dog = new Dog();
+                    dog.bark();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Dog is barking</p>
+                </li>
+            
+                <li>
+                    <strong>3. Write a Java program to create an interface Flyable with a method called fly_obj(). Create three classes Spacecraft, Airplane, and Helicopter that implement the Flyable interface. Implement the fly_obj() method for each of the three classes.</strong>
+                    <pre>interface Flyable {
+                void fly_obj();
+            }
+            
+            class Spacecraft implements Flyable {
+                public void fly_obj() {
+                    System.out.println("Spacecraft is flying in space");
+                }
+            }
+            
+            class Airplane implements Flyable {
+                public void fly_obj() {
+                    System.out.println("Airplane is flying in the sky");
+                }
+            }
+            
+            class Helicopter implements Flyable {
+                public void fly_obj() {
+                    System.out.println("Helicopter is hovering in the air");
+                }
+            }
+            
+            public class FlyableTest {
+                public static void main(String[] args) {
+                    Flyable spacecraft = new Spacecraft();
+                    Flyable airplane = new Airplane();
+                    Flyable helicopter = new Helicopter();
+                    
+                    spacecraft.fly_obj();
+                    airplane.fly_obj();
+                    helicopter.fly_obj();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Spacecraft is flying in space<br>Airplane is flying in the sky<br>Helicopter is hovering in the air</p>
+                </li>
+            
+                <li>
+                    <strong>4. Write a Java programming to create a banking system with three classes - Bank, Account, SavingsAccount, and CurrentAccount. The bank should have a list of accounts and methods for adding them. Accounts should be an interface with methods to deposit, withdraw, calculate interest, and view balances. SavingsAccount and CurrentAccount should implement the Account interface and have their own unique methods.</strong>
+                    <pre>interface Account {
+                void deposit(double amount);
+                void withdraw(double amount);
+                double calculateInterest();
+                double getBalance();
+            }
+            
+            class SavingsAccount implements Account {
+                private double balance;
+            
+                public void deposit(double amount) {
+                    balance += amount;
+                }
+            
+                public void withdraw(double amount) {
+                    if (balance >= amount) {
+                        balance -= amount;
+                    } else {
+                        System.out.println("Insufficient funds");
+                    }
+                }
+            
+                public double calculateInterest() {
+                    return balance * 0.04; // 4% interest
+                }
+            
+                public double getBalance() {
+                    return balance;
+                }
+            }
+            
+            class CurrentAccount implements Account {
+                private double balance;
+            
+                public void deposit(double amount) {
+                    balance += amount;
+                }
+            
+                public void withdraw(double amount) {
+                    if (balance >= amount) {
+                        balance -= amount;
+                    } else {
+                        System.out.println("Insufficient funds");
+                    }
+                }
+            
+                public double calculateInterest() {
+                    return 0; // No interest
+                }
+            
+                public double getBalance() {
+                    return balance;
+                }
+            }
+            
+            class Bank {
+                private List<Account> accounts = new ArrayList<>();
+            
+                public void addAccount(Account account) {
+                    accounts.add(account);
+                }
+            
+                public void showBalances() {
+                    for (Account account : accounts) {
+                        System.out.println("Balance: " + account.getBalance());
+                    }
+                }
+            }
+            
+            public class BankTest {
+                public static void main(String[] args) {
+                    Bank bank = new Bank();
+                    SavingsAccount savings = new SavingsAccount();
+                    CurrentAccount current = new CurrentAccount();
+                    
+                    savings.deposit(1000);
+                    current.deposit(500);
+                    
+                    bank.addAccount(savings);
+                    bank.addAccount(current);
+                    
+                    bank.showBalances();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Balance: 1000.0<br>Balance: 500.0</p>
+                </li>
+            
+                <li>
+                    <strong>5. Write a Java program to create an interface Resizable with methods resizeWidth(int width) and resizeHeight(int height) that allow an object to be resized. Create a class Rectangle that implements the Resizable interface and implements the resize methods.</strong>
+                    <pre>interface Resizable {
+                void resizeWidth(int width);
+                void resizeHeight(int height);
+            }
+            
+            class Rectangle implements Resizable {
+                private int width;
+                private int height;
+            
+                public Rectangle(int width, int height) {
+                    this.width = width;
+                    this.height = height;
+                }
+            
+                public void resizeWidth(int width) {
+                    this.width = width;
+                }
+            
+                public void resizeHeight(int height) {
+                    this.height = height;
+                }
+            
+                public String toString() {
+                    return "Rectangle [Width: " + width + ", Height: " + height + "]";
+                }
+            }
+            
+            public class ResizableTest {
+                public static void main(String[] args) {
+                    Rectangle rectangle = new Rectangle(10, 20);
+                    System.out.println(rectangle);
+                    rectangle.resizeWidth(15);
+                    rectangle.resizeHeight(25);
+                    System.out.println(rectangle);
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Rectangle [Width: 10, Height: 20]<br>Rectangle [Width: 15, Height: 25]</p>
+                </li>
+            
+                <li>
+                    <strong>6. Write a Java program to create an interface Drawable with a method draw() that takes no arguments and returns void. Create three classes Circle, Rectangle, and Triangle that implement the Drawable interface and override the draw() method to draw their respective shapes.</strong>
+                    <pre>interface Drawable {
+                void draw();
+            }
+            
+            class Circle implements Drawable {
+                public void draw() {
+                    System.out.println("Drawing a Circle");
+                }
+            }
+            
+            class Rectangle implements Drawable {
+                public void draw() {
+                    System.out.println("Drawing a Rectangle");
+                }
+            }
+            
+            class Triangle implements Drawable {
+                public void draw() {
+                    System.out.println("Drawing a Triangle");
+                }
+            }
+            
+            public class DrawableTest {
+                public static void main(String[] args) {
+                    Drawable circle = new Circle();
+                    Drawable rectangle = new Rectangle();
+                    Drawable triangle = new Triangle();
+                    
+                    circle.draw();
+                    rectangle.draw();
+                    triangle.draw();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Drawing a Circle<br>Drawing a Rectangle<br>Drawing a Triangle</p>
+                </li>
+            
+                <li>
+                    <strong>7. Write a Java program to create an interface Sortable with a method sort() that sorts an array of integers in ascending order. Create two classes BubbleSort and SelectionSort that implement the Sortable interface and provide their own implementations of the sort() method.</strong>
+                    <pre>interface Sortable {
+                void sort(int[] array);
+            }
+            
+            class BubbleSort implements Sortable {
+                public void sort(int[] array) {
+                    for (int i = 0; i < array.length - 1; i++) {
+                        for (int j = 0; j < array.length - i - 1; j++) {
+                            if (array[j] > array[j + 1]) {
+                                int temp = array[j];
+                                array[j] = array[j + 1];
+                                array[j + 1] = temp;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            class SelectionSort implements Sortable {
+                public void sort(int[] array) {
+                    for (int i = 0; i < array.length - 1; i++) {
+                        int minIndex = i;
+                        for (int j = i + 1; j < array.length; j++) {
+                            if (array[j] < array[minIndex]) {
+                                minIndex = j;
+                            }
+                        }
+                        int temp = array[minIndex];
+                        array[minIndex] = array[i];
+                        array[i] = temp;
+                    }
+                }
+            }
+            
+            public class SortableTest {
+                public static void main(String[] args) {
+                    int[] array = {5, 2, 8, 3, 1};
+                    Sortable bubbleSort = new BubbleSort();
+                    Sortable selectionSort = new SelectionSort();
+                    
+                    bubbleSort.sort(array);
+                    System.out.println("Bubble Sorted: " + Arrays.toString(array));
+            
+                    array = new int[]{5, 2, 8, 3, 1}; // Reset array
+                    selectionSort.sort(array);
+                    System.out.println("Selection Sorted: " + Arrays.toString(array));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Bubble Sorted: [1, 2, 3, 5, 8]<br>Selection Sorted: [1, 2, 3, 5, 8]</p>
+                </li>
+            
+                <li>
+                    <strong>8. Write a Java program to create an interface Playable with a method play() that takes no arguments and returns void. Create three classes Football, Volleyball, and Basketball that implement the Playable interface and override the play() method to play the respective sports.</strong>
+                    <pre>interface Playable {
+                void play();
+            }
+            
+            class Football implements Playable {
+                public void play() {
+                    System.out.println("Playing Football");
+                }
+            }
+            
+            class Volleyball implements Playable {
+                public void play() {
+                    System.out.println("Playing Volleyball");
+                }
+            }
+            
+            class Basketball implements Playable {
+                public void play() {
+                    System.out.println("Playing Basketball");
+                }
+            }
+            
+            public class PlayableTest {
+                public static void main(String[] args) {
+                    Playable football = new Football();
+                    Playable volleyball = new Volleyball();
+                    Playable basketball = new Basketball();
+                    
+                    football.play();
+                    volleyball.play();
+                    basketball.play();
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Playing Football<br>Playing Volleyball<br>Playing Basketball</p>
+                </li>
+            
+                <li>
+                    <strong>9. Write a Java program to create an interface Searchable with a method search(String keyword) that searches for a given keyword in a text document. Create two classes Document and WebPage that implement the Searchable interface and provide their own implementations of the search() method.</strong>
+                    <pre>interface Searchable {
+                void search(String keyword);
+            }
+            
+            class Document implements Searchable {
+                public void search(String keyword) {
+                    System.out.println("Searching for '" + keyword + "' in Document");
+                }
+            }
+            
+            class WebPage implements Searchable {
+                public void search(String keyword) {
+                    System.out.println("Searching for '" + keyword + "' in WebPage");
+                }
+            }
+            
+            public class SearchableTest {
+                public static void main(String[] args) {
+                    Searchable document = new Document();
+                    Searchable webPage = new WebPage();
+                    
+                    document.search("Java");
+                    webPage.search("Java");
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Searching for 'Java' in Document<br>Searching for 'Java' in WebPage</p>
+                </li>
+            
+                <li>
+                    <strong>10. Write a Java program to create an interface Encryptable with methods encrypt (String data) and decrypt (String encryptedData) that define encryption and decryption operations. Create two classes AES and RSA that implement the Encryptable interface and provide their own encryption and decryption algorithms.</strong>
+                    <pre>interface Encryptable {
+                String encrypt(String data);
+                String decrypt(String encryptedData);
+            }
+            
+            class AES implements Encryptable {
+                public String encrypt(String data) {
+                    return "AES Encrypted: " + data;
+                }
+            
+                public String decrypt(String encryptedData) {
+                    return "Decrypted AES: " + encryptedData;
+                }
+            }
+            
+            class RSA implements Encryptable {
+                public String encrypt(String data) {
+                    return "RSA Encrypted: " + data;
+                }
+            
+                public String decrypt(String encryptedData) {
+                    return "Decrypted RSA: " + encryptedData;
+                }
+            }
+            
+            public class EncryptableTest {
+                public static void main(String[] args) {
+                    Encryptable aes = new AES();
+                    Encryptable rsa = new RSA();
+                    
+                    String data = "Hello World";
+                    String aesEncrypted = aes.encrypt(data);
+                    String rsaEncrypted = rsa.encrypt(data);
+                    
+                    System.out.println(aesEncrypted);
+                    System.out.println(rsaEncrypted);
+                    System.out.println(aes.decrypt(aesEncrypted));
+                    System.out.println(rsa.decrypt(rsaEncrypted));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> AES Encrypted: Hello World<br>RSA Encrypted: Hello World<br>Decrypted AES: AES Encrypted: Hello World<br>Decrypted RSA: RSA Encrypted: Hello World</p>
+                </li>
+            
+                <li>
+                    <strong>11. Write a Java program to create an interface Sortable with a method sort(int[] array) that sorts an array of integers in descending order. Create two classes QuickSort and MergeSort that implement the Sortable interface and provide their own implementations of the sort() method.</strong>
+                    <pre>interface Sortable {
+                void sort(int[] array);
+            }
+            
+            class QuickSort implements Sortable {
+                public void sort(int[] array) {
+                    Arrays.sort(array);
+                    // Reverse for descending order
+                    for (int i = 0; i < array.length / 2; i++) {
+                        int temp = array[i];
+                        array[i] = array[array.length - i - 1];
+                        array[array.length - i - 1] = temp;
+                    }
+                }
+            }
+            
+            class MergeSort implements Sortable {
+                public void sort(int[] array) {
+                    Arrays.sort(array);
+                    // Reverse for descending order
+                    for (int i = 0; i < array.length / 2; i++) {
+                        int temp = array[i];
+                        array[i] = array[array.length - i - 1];
+                        array[array.length - i - 1] = temp;
+                    }
+                }
+            }
+            
+            public class SortableTest {
+                public static void main(String[] args) {
+                    int[] array = {5, 2, 8, 3, 1};
+                    Sortable quickSort = new QuickSort();
+                    Sortable mergeSort = new MergeSort();
+                    
+                    quickSort.sort(array);
+                    System.out.println("Quick Sorted: " + Arrays.toString(array));
+            
+                    array = new int[]{5, 2, 8, 3, 1}; // Reset array
+                    mergeSort.sort(array);
+                    System.out.println("Merge Sorted: " + Arrays.toString(array));
+                }
+            }</pre>
+                    <p><strong>Output:</strong> Quick Sorted: [8, 5, 3, 2, 1]<br>Merge Sorted: [8, 5, 3, 2, 1]</p>
+                </li>
+            </ul>
+            
+           
+            <footer>
+                <p>&copy; 2024 Java Questions</p>
+            </footer>
+        </body>
+        </html>
